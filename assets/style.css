@@ -60,3 +60,7 @@ a {
 #footer {
     background-color: rgb(104, 62, 219);
 }
+
+.hobbies-nav-link {
+    color: red;
+}
