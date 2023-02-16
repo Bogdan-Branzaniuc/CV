@@ -1,21 +1,21 @@
  gsap.registerPlugin(ScrollTrigger)
 
 
- let navLinks = document.querySelectorAll('.nav-spy-wrapper > ul > *')
- for (let navLink of navLinks) {
-     let sectionClass = '.' + navLink.className + '-section'
+ let navLinkLiElements = document.querySelectorAll('.nav-spy-wrapper > ul > *')
+ for (let navLi of navLinkLiElements) {
+     let sectionClass = '.' + navLi.className + '-section'
 
-     gsap.to(navLink, {
+     gsap.to(navLi, {
          scrollTrigger: {
-             trigger: '#' + navLink.className,
+             trigger: '#' + navLi.className,
              toggleActions: "play reverse play reverse",
              start: 'top 40%',
              endTrigger: sectionClass,
              end: 'bottom 40%',
-             markers: true
          },
-         fontSize: "30",
+         fontSize: "20",
          duration: 1,
+         borderBottom: 'solid 1px black',
      })
  }
 

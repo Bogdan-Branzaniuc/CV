@@ -7,30 +7,50 @@ body {
     position: relative;
 }
 
+.nav-headings h1,
+.nav-headings h2 {
+    font-size: 100%;
+}
+
+.nav-headings {
+    display: flex;
+    flex-direction: column;
+    min-width: 60%;
+
+}
+
 /* navigation system */
-.navbar {
+nav {
     top: 0;
     position: fixed;
-    display: flex;
-    padding: 30px;
-    height: 25%;
-    width: 100%;
-    background-color: #FFFDC9;
     z-index: 1500;
+    background-color: #FFFDC9;
+    max-height: 25%;
+}
+
+.navbar {
+    font-size: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    width: 100%;
 }
 
 .nav-spy-wrapper {
-    width: 100%;
+    width: 40%;
+    max-height: 70%;
     display: flex;
+    justify-content: space-between;
 }
+
 
 a {
     text-decoration: none;
 }
 
 #profile-img {
-    width: 100px;
-    height: 100px;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
 }
 
@@ -42,7 +62,7 @@ a {
     display: block;
     position: absolute;
     top: -350px;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 
@@ -72,9 +92,4 @@ a {
 
 .contact-section {
     background-color: rgb(81, 219, 62);
-}
-
-
-.hobbies-nav-link {
-    color: red;
 }
