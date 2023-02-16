@@ -3,14 +3,20 @@
     margin: 0;
 }
 
+body {
+    position: relative;
+}
+
 /* navigation system */
 .navbar {
+    top: 0;
     position: fixed;
     display: flex;
     padding: 30px;
     height: 25%;
     width: 100%;
     background-color: #FFFDC9;
+    z-index: 1500;
 }
 
 .nav-spy-wrapper {
@@ -28,38 +34,45 @@ a {
     border-radius: 50%;
 }
 
+#projects,
+#principles,
+#about-me,
+#hobbies,
+#contact {
+    display: block;
+    position: absolute;
+    top: -50%;
+    visibility: hidden;
+}
+
+
 /* sections */
 .container {
+    position: relative;
     height: 50vh;
 }
 
-#projects {
+.projects-section {
+    margin-top: 20%;
     background-color: aqua;
 }
 
-#work-history {
-    background-color: rgb(112, 161, 161);
+.principles-section {
+    background-color: rgb(42, 53, 46);
 }
 
-#principles {
-    background-color: rgb(0, 255, 234);
-}
-
-#about-me {
+.about-me-section {
     background-color: rgb(119, 0, 255);
 }
 
-#hobbies {
+.hobbies-section {
     background-color: rgb(255, 0, 0);
 }
 
-#contact {
+.contact-section {
     background-color: rgb(81, 219, 62);
 }
 
-#footer {
-    background-color: rgb(104, 62, 219);
-}
 
 .hobbies-nav-link {
     color: red;

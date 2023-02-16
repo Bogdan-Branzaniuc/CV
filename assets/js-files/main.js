@@ -6,9 +6,9 @@
      gsap.to(navLink, {
          scrollTrigger: {
              trigger: '#' + navLink.className,
-             toggleActions: "play none reverse none",
-             start: 'top  center',
-             end: 'top center',
+             toggleActions: "play reverse play reverse",
+             start: 'top 50%',
+             end: 'bottom -2%',
          },
          fontSize: "30",
          duration: 1,
