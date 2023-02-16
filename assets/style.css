@@ -41,8 +41,8 @@ a {
 #contact {
     display: block;
     position: absolute;
-    top: -50%;
-    visibility: hidden;
+    top: -350px;
+    /* visibility: hidden; */
 }
 
 
@@ -59,6 +59,7 @@ a {
 
 .principles-section {
     background-color: rgb(42, 53, 46);
+    height: 2000px;
 }
 
 .about-me-section {
