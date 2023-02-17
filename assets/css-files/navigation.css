@@ -1,0 +1,82 @@
+.nav-headings h1,
+.nav-headings h2 {
+    font-size: 100%;
+}
+
+.nav-headings {
+    display: flex;
+    flex-direction: column;
+    min-width: 60%;
+}
+
+/* navigation system */
+nav {
+    top: 0;
+    position: fixed;
+    z-index: 1500;
+    background-color: #FFFDC9;
+    max-height: 25%;
+}
+
+.navbar {
+    font-size: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    width: 100%;
+}
+
+.nav-spy-wrapper {
+    width: 40%;
+    max-height: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+#profile-svg {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+
+#projects,
+#principles,
+#about-me,
+#hobbies,
+#contact {
+    display: block;
+    position: absolute;
+    top: -350px;
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 800px) {
+    #profile-svg {
+        display: none;
+    }
+
+    .nav-spy-wrapper li {
+        display: inline;
+        margin: 0 1%;
+    }
+
+    .nav-spy-wrapper {
+        min-width: 70%;
+
+    }
+
+    .nav-spy-wrapper div {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .nav-headings {
+        min-width: 30%;
+    }
+}

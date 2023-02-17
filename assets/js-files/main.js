@@ -1,7 +1,7 @@
  gsap.registerPlugin(ScrollTrigger)
 
 
- let navLinkLiElements = document.querySelectorAll('.nav-spy-wrapper > ul > *')
+ let navLinkLiElements = document.querySelectorAll('.nav-spy-wrapper > div > *')
  for (let navLi of navLinkLiElements) {
      let sectionClass = '.' + navLi.className + '-section'
 
@@ -13,7 +13,7 @@
              endTrigger: sectionClass,
              end: 'bottom 40%',
          },
-         fontSize: "20",
+         fontSize: "15",
          duration: 1,
          borderBottom: 'solid 1px black',
      })
