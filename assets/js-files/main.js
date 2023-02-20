@@ -1,22 +1,36 @@
  gsap.registerPlugin(ScrollTrigger)
 
+ let navSpyWrapperWidth = document.querySelector('.nav-spy-wrapper').offsetWidth
+ let navLinkLiElements = document.querySelectorAll('.nav-spy-wrapper > div > li')
+ let svgSelector = document.querySelector('.mobile-nav-selector')
 
- let navLinkLiElements = document.querySelectorAll('.nav-spy-wrapper > div > *')
  for (let navLi of navLinkLiElements) {
      let sectionClass = '.' + navLi.className + '-section'
 
      gsap.to(navLi, {
          scrollTrigger: {
-             trigger: '#' + navLi.className,
+             trigger: sectionClass,
              toggleActions: "play reverse play reverse",
-             start: 'top 40%',
+             start: 'top 50%',
              endTrigger: sectionClass,
-             end: 'bottom 40%',
+             end: 'bottom 50%',
          },
          fontSize: "15",
-         duration: 1,
+         duration: 0.2,
          borderBottom: 'solid 1px black',
      })
- }
 
- // do the end with the size of the section e voilla
+
+     let selectorObserver = new ResizeObserver(() => {
+         if ((navLi.style.fontSize) == '15px') {
+             let liOffsetX = navLi.offsetLeft
+             let liMiddle = navLi.offsetWidth / 2
+             let selectorXCoor = liOffsetX + liMiddle - 10
+             gsap.to(svgSelector, {
+                 x: selectorXCoor,
+                 duration: 1
+             })
+         }
+     })
+     selectorObserver.observe(navLi)
+ }

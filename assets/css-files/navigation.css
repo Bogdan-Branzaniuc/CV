@@ -1,12 +1,12 @@
 .nav-headings h1,
 .nav-headings h2 {
-    font-size: 100%;
+    font-size: 200%;
 }
 
-.nav-headings {
+.nav-heading {
     display: flex;
     flex-direction: column;
-    min-width: 60%;
+    color: #FF2156;
 }
 
 /* navigation system */
@@ -14,28 +14,41 @@ nav {
     top: 0;
     position: fixed;
     z-index: 1500;
-    background-color: #FFFDC9;
-    max-height: 25%;
+    width: 100%;
+    background: rgb(1, 20, 21);
+    background: linear-gradient(180deg,
+            rgba(1, 20, 21, 1) 0%,
+            rgba(1, 20, 21, 1) 50%,
+            rgba(1, 20, 21, 0.4234068627450981) 81%,
+            rgba(1, 20, 21, 0) 100%);
 }
 
-.navbar {
+.row .navbar {
+    padding: 10px;
     font-size: 70%;
     display: flex;
     justify-content: space-between;
-    padding: 30px;
     width: 100%;
 }
 
 .nav-spy-wrapper {
     width: 40%;
-    max-height: 70%;
     display: flex;
     justify-content: center;
 }
 
+.mobile-nav-selector {
+    display: none;
+}
+
+.nav-spy-wrapper li {
+    line-height: 40px;
+
+}
 
 a {
     text-decoration: none;
+    color: #E06262;
 }
 
 #profile-svg {
@@ -60,14 +73,47 @@ a {
         display: none;
     }
 
-    .nav-spy-wrapper li {
-        display: inline;
-        margin: 0 1%;
+    .nav {
+        padding: 0;
+    }
+
+    .navbar {
+        padding: 0;
+    }
+
+    .nav-heading {
+        min-width: 25%;
+        padding: 0;
+        padding-left: 0.2em;
+    }
+
+    .nav-heading h1 {
+        font-size: 1.5em;
+        line-height: 90%;
     }
 
     .nav-spy-wrapper {
-        min-width: 70%;
+        min-width: 75%;
+        padding: 0;
+        font-size: 0.5em;
+    }
 
+    .nav-spy-wrapper li {
+        display: inline-flex;
+        align-items: center;
+        margin: 0 0.2em;
+    }
+
+
+
+    .nav-spy-wrapper div {
+        position: relative;
+    }
+
+    .mobile-nav-selector {
+        display: block;
+        position: absolute;
+        left: 0;
     }
 
     .nav-spy-wrapper div {
@@ -76,7 +122,4 @@ a {
         justify-content: space-around;
     }
 
-    .nav-headings {
-        min-width: 30%;
-    }
 }

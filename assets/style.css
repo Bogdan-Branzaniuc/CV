@@ -5,6 +5,7 @@
 
 body {
     position: relative;
+    background-color: #011415;
 }
 
 
@@ -13,27 +14,18 @@ body {
 /* sections */
 .container {
     position: relative;
-    height: 50vh;
+    height: 90vh;
+    color: #E06262;
 }
 
 .projects-section {
     margin-top: 20%;
-    background-color: aqua;
 }
 
-.principles-section {
-    background-color: rgb(42, 53, 46);
-    height: 2000px;
-}
+.principles-section {}
 
-.about-me-section {
-    background-color: rgb(119, 0, 255);
-}
+.about-me-section {}
 
-.hobbies-section {
-    background-color: rgb(255, 0, 0);
-}
+.hobbies-section {}
 
-.contact-section {
-    background-color: rgb(81, 219, 62);
-}
+.contact-section {}
