@@ -4,17 +4,18 @@
 }
 
 .nav-heading {
+
     display: flex;
     flex-direction: column;
     color: #FF2156;
 }
 
-/* navigation system */
 nav {
     top: 0;
     position: fixed;
     z-index: 1500;
     width: 100%;
+    max-height: 10%;
     background: rgb(1, 20, 21);
     background: linear-gradient(180deg,
             rgba(1, 20, 21, 1) 0%,
@@ -25,16 +26,23 @@ nav {
 
 .row .navbar {
     padding: 10px;
-    font-size: 70%;
     display: flex;
     justify-content: space-between;
     width: 100%;
+    height: 100px;
 }
 
 .nav-spy-wrapper {
+    position: relative;
     width: 40%;
     display: flex;
     justify-content: center;
+    font-size: large;
+}
+
+.nav-spy-wrapper a {
+    text-decoration: none;
+    color: #E06262;
 }
 
 .mobile-nav-selector {
@@ -43,19 +51,60 @@ nav {
 
 .nav-spy-wrapper li {
     line-height: 40px;
-
+    display: block;
+    position: relative;
+    right: 30;
 }
 
-a {
-    text-decoration: none;
-    color: #E06262;
+.projects-link-li a {
+    position: relative;
+    left: -40%
 }
 
-#profile-svg {
-    width: 5rem;
-    height: 5rem;
+.principles-link-li a {
+    position: relative;
+    left: 10%
+}
+
+.about-me-link-li a {
+    position: relative;
+    left: 30%
+}
+
+.hobbies-link-li a {
+    position: relative;
+    left: 10%
+}
+
+.contact-link-li a {
+    position: relative;
+    left: -30%
+}
+
+.image-and-svg-profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+#profile-immage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: solid 7px #FF2156;
+    width: 100%;
     border-radius: 50%;
 }
+
+.profile-svg {
+    height: 125%;
+    border-radius: 50%;
+}
+
 
 #projects,
 #principles,
@@ -68,8 +117,31 @@ a {
     visibility: hidden;
 }
 
+
+
 @media only screen and (max-width: 800px) {
-    #profile-svg {
+
+    .projects-link-li a,
+    .principles-link-li a,
+    .about-me-link-li a,
+    .hobbies-link-li a,
+    .contact-link-li a {
+        left: 0;
+    }
+
+    .nav-spy-wrapper .image-and-svg-profile {
+        display: none;
+    }
+
+    .profile-svg {
+        display: none;
+    }
+
+    #profile-immage {
+        display: none;
+    }
+
+    .profile-immage-selector {
         display: none;
     }
 
@@ -95,16 +167,19 @@ a {
     .nav-spy-wrapper {
         min-width: 75%;
         padding: 0;
-        font-size: 0.5em;
+        font-size: 12px;
     }
 
     .nav-spy-wrapper li {
+        position: relative;
         display: inline-flex;
         align-items: center;
         margin: 0 0.2em;
     }
 
-
+    .nav-spy-wrapper a:visited {
+        color: #E06262;
+    }
 
     .nav-spy-wrapper div {
         position: relative;
@@ -122,4 +197,12 @@ a {
         justify-content: space-around;
     }
 
+}
+
+@media only screen and (max-width: 500px) {
+    .nav-spy-wrapper {
+        min-width: 75%;
+        padding: 0;
+        font-size: 8px;
+    }
 }
