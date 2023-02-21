@@ -8,14 +8,14 @@ nav a {
 }
 
 nav a:hover {
-    color: inherit;
+    color: #ff2146;
 }
 
 .nav-heading {
     display: flex;
     flex-direction: column;
     color: #FF2156;
-    padding-left: 30px;
+    padding-left: 50px;
 }
 
 nav {
@@ -44,7 +44,7 @@ nav {
     display: flex;
     justify-content: right;
     font-size: large;
-    padding-right: 100px;
+    padding-right: 10%;
     max-height: 100px;
     width: 20%;
 }
@@ -65,7 +65,7 @@ nav {
 
 .projects-link-li a {
     position: relative;
-    left: -40%
+    left: -30%
 }
 
 .principles-link-li a {
@@ -214,7 +214,7 @@ nav {
 
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
     .nav-spy-wrapper {
         min-width: 75%;
         padding: 0;
@@ -224,6 +224,23 @@ nav {
     .nav-heading h1 {
         font-size: 1.5em;
         padding: 0.3em;
+    }
+
+    .nav-heading a {
+        padding-top: 0.2em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .nav-spy-wrapper {
+        min-width: 75%;
+        padding: 0;
+        font-size: 8px;
+    }
+
+    .nav-heading h1 {
+        font-size: 1.3em;
+        padding: 0.4em;
     }
 
     .nav-heading a {
