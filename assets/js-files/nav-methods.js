@@ -63,7 +63,8 @@ let navSystem = function () {
                 let liDegree = liOffsetY
                 gsap.to(svgDesktopSelector, {
                     rotate: liDegree + 10,
-                    duration: 0.2
+                    duration: 0.7,
+                    ease: Elastic.easeOut.config(1.5, 0.6),
                 })
             }
         })
