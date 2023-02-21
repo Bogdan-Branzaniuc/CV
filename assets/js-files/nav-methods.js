@@ -1,6 +1,6 @@
 let navSystem = function () {
     /** 
-     *creates the navigation menu animations for desktop and mobile versions 
+     *creates the navigation menu animations for desktop and mobile versions with the gsap library
      */
 
     gsap.registerPlugin(ScrollTrigger)
