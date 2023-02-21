@@ -38,12 +38,12 @@ let navSystem = function () {
                 const selectorTl = gsap.timeline()
                 selectorTl.to(svgMobileSelector, {
                     x: selectorXCoor,
-                    duration: 0.5,
+                    duration: 0.4,
                 })
                 selectorTl.to(svgMobileSelectorUpperArrow, {
                     x: -30,
                     duration: 0.5,
-                }, '-=0.4')
+                }, '-=0.3')
                 selectorTl.to(svgMobileSelectorLowerArrow, {
                     x: 30,
                     duration: 0.5,
@@ -56,14 +56,14 @@ let navSystem = function () {
                 }, '-=0.25')
                 selectorTl.to(svgMobileSelectorLowerArrow, {
                     x: 0,
-                    duration: 0.5,
+                    duration: 0.3,
                     ease: Elastic.easeOut,
                 }, '<')
-
-                let liDegree = liOffsetY
+                let percentageDegree = liOffsetY < 100 ? 0.15 : 0.27
+                let liDegree = liOffsetY - percentageDegree * liOffsetY
                 gsap.to(svgDesktopSelector, {
                     rotate: liDegree + 10,
-                    duration: 0.7,
+                    duration: 0.2,
                     ease: Elastic.easeOut.config(1.5, 0.6),
                 })
             }
@@ -73,6 +73,15 @@ let navSystem = function () {
     }
 }
 
+const calculateAngle = function (liElement) {
+    // 
+    let leftDistance = liElement.offsetLeft - svgDesktopSelector.offsetLeft - svgDesktopSelector.offsetWidth / 2
+    let elevation = svgDesktopSelector.offsetTop + svgDesktopSelector.offsetHeight / 2 -
+        liElement.offsetTop - liElement.offsetHeight / 2
+    let hypotenuse = Math.sqrt(leftDistance * 2 + elevation * 2)
+    let angle = Math.sin(leftDistance / hypotenuse)
+    console.log(angle)
+}
 
 export {
     navSystem,

@@ -56,7 +56,7 @@ nav {
 }
 
 .nav-spy-wrapper li {
-    line-height: 40px;
+    line-height: 50px;
     display: block;
     position: relative;
     color: #E06262;
@@ -80,7 +80,7 @@ nav {
 
 .hobbies-link-li a {
     position: relative;
-    left: 10%
+    left: 20%
 }
 
 .contact-link-li a {
@@ -94,8 +94,8 @@ nav {
     justify-content: center;
     align-items: center;
     top: 50px;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 
 #profile-immage {
@@ -204,7 +204,7 @@ nav {
         display: block;
         position: absolute;
         left: 0;
-        top: -9px;
+        top: -7px;
         overflow: visible;
     }
 
