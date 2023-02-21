@@ -10,7 +10,10 @@ let navSystem = function () {
     let svgDesktopSelector = document.querySelector('.profile-svg')
     let svgMobileSelectorUpperArrow = document.querySelector('.upper-mobile-svg-arrow')
     let svgMobileSelectorLowerArrow = document.querySelector('.lower-mobile-svg-arrow')
+    let profileDesktopImage = document.querySelector('#profile-immage')
     for (let navLi of navLinkLiElements) {
+        // over-engineering execrcice */
+        //let angle = findRotationAngle(navLi.firstChild, profileDesktopImage)
         let sectionClass = '.' + navLi.className.replace('-link-li', '-section')
         const resizeTl = gsap.timeline()
         resizeTl.to(navLi, {
@@ -18,7 +21,6 @@ let navSystem = function () {
             color: "#FF2156",
             duration: 0.5,
         })
-
         ScrollTrigger.create({
             animation: resizeTl,
             trigger: sectionClass,
@@ -63,25 +65,29 @@ let navSystem = function () {
                 let liDegree = liOffsetY - percentageDegree * liOffsetY
                 gsap.to(svgDesktopSelector, {
                     rotate: liDegree + 10,
-                    duration: 0.2,
+                    duration: 0.5,
                     ease: Elastic.easeOut.config(1.5, 0.6),
                 })
             }
         })
-
         selectorObserver.observe(navLi)
     }
 }
 
-const calculateAngle = function (liElement) {
-    // 
-    let leftDistance = liElement.offsetLeft - svgDesktopSelector.offsetLeft - svgDesktopSelector.offsetWidth / 2
-    let elevation = svgDesktopSelector.offsetTop + svgDesktopSelector.offsetHeight / 2 -
-        liElement.offsetTop - liElement.offsetHeight / 2
-    let hypotenuse = Math.sqrt(leftDistance * 2 + elevation * 2)
-    let angle = Math.sin(leftDistance / hypotenuse)
-    console.log(angle)
-}
+// let radianToDegree = r => r * 180 * Math.PI ** -1
+
+// let findRotationAngle = function (li, svg) {
+
+//     let liRect = li.getBoundingClientRect()
+//     let svgRect = svg.getBoundingClientRect()
+
+//     let opositeSeg = liRect.x - svgRect.x - svgRect.width / 2
+//     let elevationSeg = Math.abs(svgRect.y + svgRect.height / 2 - liRect.y - liRect.width / 2)
+//     let hipotenuse = Math.sqrt(Math.pow(opositeSeg, 2) + Math.pow(elevationSeg, 2))
+//     let angle = radianToDegree(Math.asin(opositeSeg / hipotenuse).toFixed(3) * 1)
+//     console.log(angle)
+//     return angle
+// }
 
 export {
     navSystem,
