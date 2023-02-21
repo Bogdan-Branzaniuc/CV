@@ -12,14 +12,10 @@ nav a:hover {
 }
 
 .nav-heading {
-    padding-left: 30px;
-    height: 200px;
-}
-
-.nav-heading {
     display: flex;
     flex-direction: column;
     color: #FF2156;
+    padding-left: 30px;
 }
 
 nav {
@@ -41,15 +37,16 @@ nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 100px;
+    max-height: 100px;
 }
 
 .nav-spy-wrapper {
-    width: 20%;
     display: flex;
     justify-content: right;
     font-size: large;
     padding-right: 100px;
+    max-height: 100px;
+    width: 20%;
 }
 
 
@@ -167,6 +164,7 @@ nav {
         min-width: 25%;
         padding: 0.3em;
         height: 100%;
+        line-height: 100%;
     }
 
     .nav-heading h1 {
@@ -174,7 +172,10 @@ nav {
     }
 
     .nav-heading a {
-        line-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding-top: 0.3em;
     }
 
     .nav-spy-wrapper {
@@ -222,5 +223,10 @@ nav {
 
     .nav-heading h1 {
         font-size: 1.5em;
+        padding: 0.3em;
+    }
+
+    .nav-heading a {
+        padding-top: 0.2em;
     }
 }
