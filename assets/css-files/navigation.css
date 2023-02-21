@@ -1,10 +1,22 @@
-.nav-headings h1,
-.nav-headings h2 {
-    font-size: 200%;
+.nav-heading h1 {
+    font-size: 400%;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:hover {
+    color: inherit;
 }
 
 .nav-heading {
+    padding-left: 30px;
+    height: 200px;
+}
 
+.nav-heading {
     display: flex;
     flex-direction: column;
     color: #FF2156;
@@ -33,17 +45,14 @@ nav {
 }
 
 .nav-spy-wrapper {
-    position: relative;
-    width: 40%;
+    width: 20%;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     font-size: large;
+    padding-right: 100px;
 }
 
-.nav-spy-wrapper a {
-    text-decoration: none;
-    color: #E06262;
-}
+
 
 .mobile-nav-selector {
     display: none;
@@ -53,6 +62,7 @@ nav {
     line-height: 40px;
     display: block;
     position: relative;
+    color: #E06262;
     right: 30;
 }
 
@@ -155,19 +165,23 @@ nav {
 
     .nav-heading {
         min-width: 25%;
-        padding: 0;
-        padding-left: 0.2em;
+        padding: 0.3em;
+        height: 100%;
     }
 
     .nav-heading h1 {
-        font-size: 1.5em;
-        line-height: 90%;
+        font-size: 2em;
+    }
+
+    .nav-heading a {
+        line-height: 100%;
     }
 
     .nav-spy-wrapper {
         min-width: 75%;
         padding: 0;
         font-size: 12px;
+        left: 0;
     }
 
     .nav-spy-wrapper li {
@@ -178,7 +192,7 @@ nav {
     }
 
     .nav-spy-wrapper a:visited {
-        color: #E06262;
+        color: inherit;
     }
 
     .nav-spy-wrapper div {
@@ -204,5 +218,9 @@ nav {
         min-width: 75%;
         padding: 0;
         font-size: 8px;
+    }
+
+    .nav-heading h1 {
+        font-size: 1.5em;
     }
 }

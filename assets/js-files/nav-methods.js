@@ -19,6 +19,7 @@ let navSystem = function () {
                 end: 'bottom 50%',
             },
             fontSize: "2em",
+            color: "#FF2156",
             duration: 0.2,
         })
 
@@ -38,7 +39,7 @@ let navSystem = function () {
                 let liDegree = liOffsetY
                 gsap.to(svgDesktopSelector, {
                     rotate: liDegree + 10,
-                    duration: 1
+                    duration: 0.5
                 })
             }
         })
