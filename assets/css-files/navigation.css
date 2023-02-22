@@ -49,8 +49,6 @@ nav {
     width: 20%;
 }
 
-
-
 .mobile-nav-selector {
     display: none;
 }
@@ -80,7 +78,7 @@ nav {
 
 .hobbies-link-li a {
     position: relative;
-    left: 20%
+    left: 10%
 }
 
 .contact-link-li a {
