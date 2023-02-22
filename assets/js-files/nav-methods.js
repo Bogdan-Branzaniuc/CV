@@ -40,27 +40,10 @@ const selectorsAnimations = function (selectors) {
                 if (window.innerWidth < 800) {
                     tl.to(selectors.svgMobileSelector, {
                         x: selectorXCoor,
-                        duration: 0.4,
+                        duration: 0.75,
+                        ease: Elastic.easeOut,
                     }, )
-                    tl.to(selectors.svgMobileSelectorUpperArrow, {
-                        x: 30,
-                        duration: 0.4,
-                    }, '-=0.3')
-                    tl.to(selectors.svgMobileSelectorLowerArrow, {
-                        x: 30,
-                        duration: 0.4,
 
-                    }, '<')
-                    tl.to(selectors.svgMobileSelectorUpperArrow, {
-                        x: 0,
-                        duration: 0.7,
-                        ease: Elastic.easeOut,
-                    }, '-=0.25')
-                    tl.to(selectors.svgMobileSelectorLowerArrow, {
-                        x: 0,
-                        duration: 0.7,
-                        ease: Elastic.easeOut,
-                    }, '<')
                 } else {
                     let percentageDegree = liOffsetY < 100 ? 0.15 : 0.27
                     let liDegree = liOffsetY - percentageDegree * liOffsetY
@@ -74,12 +57,46 @@ const selectorsAnimations = function (selectors) {
             }
         })
         selectorObserver.observe(navLi)
-
     }
-
 }
 
+const loadNavBar = function (selectors) {
+    const loadTl = new TimelineMax({
+        defaults: {
+            duration: 1
+        }
+    })
+    for (let navli of selectors.navLinkLiElements) {
+        loadTl.from(navli, {
+            opacity: 0,
+            x: -100,
+        }, '<')
+    }
+    loadTl.from(selectors.profileImmage, {
+        opacity: 0,
+        y: -100,
+        duration: 0.4,
+    })
+    loadTl.from(selectors.navLogo, {
+        opacity: 0,
+        x: 30,
+        duration: 0.5,
+
+    }, '<')
+    loadTl.from(selectors.svgDesktopSelector, {
+        opacity: 0,
+    })
+    loadTl.from(selectors.svgMobileSelector, {
+        opacity: 0,
+        x: 30,
+        duration: 0.5,
+        ease: Elastic.easeOut,
+    }, '<')
+
+    return loadTl
+}
 export {
     navSystem,
-    selectorsAnimations
+    selectorsAnimations,
+    loadNavBar
 }
