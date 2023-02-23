@@ -61,29 +61,38 @@ nav {
     right: 30;
 }
 
+.intro-link-li a {
+    position: absolute;
+    left: -100%;
+}
+
 .projects-link-li a {
     position: relative;
-    left: -30%
+    left: -29%;
 }
 
 .principles-link-li a {
     position: relative;
-    left: 10%
+    top: 7px;
+    left: 10%;
 }
 
 .about-me-link-li a {
     position: relative;
-    left: 30%
+    top: 15px;
+    left: 29%;
 }
 
 .hobbies-link-li a {
     position: relative;
-    left: 10%
+    top: 15px;
+    left: 10%;
 }
 
 .contact-link-li a {
     position: relative;
-    left: -30%
+    top: 15px;
+    left: -30%;
 }
 
 .image-and-svg-profile {
@@ -91,7 +100,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 50px;
+    top: 70px;
     width: 150px;
     height: 150px;
 }
@@ -112,11 +121,7 @@ nav {
 }
 
 
-#projects,
-#principles,
-#about-me,
-#hobbies,
-#contact {
+.anchor-scroll-tag {
     display: block;
     position: absolute;
     top: -350px;
@@ -127,12 +132,15 @@ nav {
 
 @media only screen and (max-width: 800px) {
 
+    .intro-link-li a,
     .projects-link-li a,
     .principles-link-li a,
     .about-me-link-li a,
     .hobbies-link-li a,
     .contact-link-li a {
+        top: 0;
         left: 0;
+        position: relative;
     }
 
     .nav-spy-wrapper .image-and-svg-profile {

@@ -14,10 +14,6 @@ const navSelectors = {
 }
 const master = new TimelineMax()
 
-console.log('asfdasd')
 navSystem(navSelectors)
-setTimeout(() => {
-    selectorsAnimations(navSelectors)
-}, 1500)
-
-master.add(loadNavBar(navSelectors), )
+master.add(loadNavBar(navSelectors))
+selectorsAnimations(navSelectors, master)

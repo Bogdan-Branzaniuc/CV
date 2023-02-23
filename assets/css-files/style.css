@@ -12,17 +12,18 @@ body {
 }
 
 
-
-
 /* sections */
-.container {
+.section {
     position: relative;
-    height: 150vh;
+    height: 100vh;
     color: #E06262;
 }
 
+.intro-section {
+    margin-top: 200px;
+}
+
 .projects-section {
-    margin-top: 20%;
     height: 250vh;
 }
 
