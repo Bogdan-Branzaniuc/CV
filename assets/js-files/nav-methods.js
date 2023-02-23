@@ -14,8 +14,9 @@ const changeNavliSize = function (navLi) {
     const resizeTl = new TimelineMax()
     resizeTl.to(navLi, {
         fontSize: "2em",
-        color: "#FF2156",
-        duration: 0.5,
+        color: "rgb(255, 33, 86)",
+        duration: 0.3,
+
     })
     return ScrollTrigger.create({
         animation: resizeTl,
@@ -27,16 +28,17 @@ const changeNavliSize = function (navLi) {
 }
 
 const selectorsAnimations = function (selectors) {
+
     for (let navLi of selectors.navLinkLiElements) {
         const selectorObserver = new ResizeObserver(() => {
-
-            if ((navLi.style.fontSize) == '2em') {
+            if ((navLi.style.color) == 'rgb(255, 33, 86)' || navLi.style.fontSize == '2em' || (navLi.style.color) == '#FF2156') {
                 let liMiddle = navLi.offsetWidth / 2
                 let svgMobileSelectorWidth = 7.5
                 let liOffsetX = navLi.offsetLeft + liMiddle - svgMobileSelectorWidth
                 let liOffsetY = navLi.offsetTop
                 let selectorXCoor = liOffsetX
                 let tl = new TimelineMax()
+                console.log(navLi.style.color)
                 if (window.innerWidth < 800) {
                     tl.to(selectors.svgMobileSelector, {
                         x: selectorXCoor,
@@ -50,7 +52,7 @@ const selectorsAnimations = function (selectors) {
                     tl.to(selectors.svgDesktopSelector, {
                         rotate: liDegree + 10,
                         duration: 0.7,
-                        ease: Elastic.easeOut.config(1.5, 0.6),
+                        ease: Elastic.easeOut.config(1, 0.3),
                     })
                 }
                 return tl

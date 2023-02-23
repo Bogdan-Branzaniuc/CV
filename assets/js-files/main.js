@@ -3,7 +3,6 @@ import {
     selectorsAnimations,
     loadNavBar
 } from './nav-methods.js'
-
 const navSelectors = {
     navLinkLiElements: document.querySelectorAll('.nav-spy-wrapper > div > li'),
     navLogo: document.querySelector('.nav-heading h1'),
@@ -15,9 +14,10 @@ const navSelectors = {
 }
 const master = new TimelineMax()
 
-
+console.log('asfdasd')
 navSystem(navSelectors)
 setTimeout(() => {
     selectorsAnimations(navSelectors)
 }, 1500)
+
 master.add(loadNavBar(navSelectors), )

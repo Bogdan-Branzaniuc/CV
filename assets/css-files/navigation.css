@@ -107,6 +107,7 @@ nav {
 
 .profile-svg {
     height: 125%;
+    width: 53px;
     border-radius: 50%;
 }
 
@@ -203,6 +204,8 @@ nav {
         position: absolute;
         left: 0;
         top: -7px;
+        width: 15px;
+        height: 60px;
         overflow: visible;
     }
 
