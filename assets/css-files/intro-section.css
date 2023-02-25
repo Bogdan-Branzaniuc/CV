@@ -1,9 +1,46 @@
 .intro-section {
     margin-top: 400px;
+    color: #478B9A;
+}
+
+.in-page-profile-wrapper {
+    display: none;
 }
 
 @media only screen and (max-width: 800px) {
     .intro-section {
         margin-top: 130px;
+    }
+
+    .in-page-profile-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+
+    .in-page-profile-img {
+        width: 90px;
+        border-radius: 50%;
+    }
+
+    .in-page-profile-wrapper svg {
+        position: absolute;
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .in-page-profile-img {
+        width: 90px;
+        border-radius: 50%;
+    }
+
+    .in-page-profile-wrapper svg {
+        position: absolute;
+        width: 120px;
     }
 }

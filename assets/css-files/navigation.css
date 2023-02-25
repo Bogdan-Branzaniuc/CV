@@ -49,6 +49,14 @@ nav {
     width: 20%;
 }
 
+.nav-text-link {
+    display: block;
+}
+
+.nav-icon-link {
+    display: none;
+}
+
 .mobile-nav-selector {
     display: none;
 }
@@ -233,12 +241,24 @@ nav {
     .nav-spy-wrapper {
         min-width: 75%;
         padding: 0;
-        font-size: 8px;
+    }
+
+    .nav-text-link {
+        display: none;
+    }
+
+    .nav-icon-link {
+        display: block;
+    }
+
+    .nav-spy-wrapper {
+        font-size: 15px;
     }
 
     .nav-heading h1 {
         font-size: 1.5em;
-        padding: 0.3em;
+        padding: 0.5em 0.3em 0 0.3;
+        line-height: 20px;
     }
 
     .nav-heading a {
@@ -250,7 +270,6 @@ nav {
     .nav-spy-wrapper {
         min-width: 75%;
         padding: 0;
-        font-size: 8px;
     }
 
     .nav-heading h1 {
