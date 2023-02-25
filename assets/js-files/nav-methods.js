@@ -9,7 +9,7 @@ const navSystem = function (selectors) {
     }
 }
 
-const changeNavliSize = function (navLi) {
+const changeNavliSize = function (navLi, selectors) {
     /** 
      *creates the scrolltrigger that enlarges the current selected section link 
      *dispatch an event every time the scrolltrigger is stumbling across a break-point
@@ -34,6 +34,7 @@ const changeNavliSize = function (navLi) {
         toggleActions: "play reverse play reverse",
         start: 'top 50%',
         end: 'bottom 50%',
+
     })
 }
 
@@ -43,9 +44,9 @@ let selectorsAnimationsTls = function (navLi, selectors) {
      * moves the desktop and mobile selectors to the current sellected section link 
      **/
     let rotationDegrees = {
-        'intro-link-li': 0,
-        'projects-link-li': 30,
-        'principles-link-li': 65,
+        'intro-link-li': 3,
+        'projects-link-li': 25,
+        'principles-link-li': 60,
         'about-me-link-li': 90,
         'hobbies-link-li': 120,
         'contact-link-li': 160,
@@ -61,13 +62,18 @@ let selectorsAnimationsTls = function (navLi, selectors) {
             duration: 0.75,
             ease: Elastic.easeOut,
         }, )
+        tl.to(selectors.svgMobileSelectorLowerArrow, {
+            y: 4,
+            duration: 0.3,
+            ease: Elastic.easeOut,
+        }, '<')
         return tl
     } else {
         let liDegree = rotationDegrees[navLi.className]
         tl.to(selectors.svgDesktopSelector, {
             rotate: liDegree,
-            duration: 0.5,
-            ease: Elastic.easeOut.config(1, 0.3),
+            duration: 0.8,
+            ease: Elastic.easeOut.config(1, 0.35),
         })
         return tl
     }
@@ -113,14 +119,12 @@ const loadNavBar = function (selectors) {
     }, '<')
     loadTl.from(selectors.svgDesktopSelector, {
         opacity: 0,
-        x: 30,
+        x: -30,
         duration: 0.4,
     })
     loadTl.from(selectors.svgMobileSelector, {
         opacity: 0,
-        x: 30,
-        duration: 0.5,
-        ease: Elastic.easeOut,
+        duration: 0.6,
     }, '<')
 
     return loadTl

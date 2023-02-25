@@ -12,7 +12,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css-files/style.css">
     <link rel="stylesheet" href="assets/css-files/navigation.css">
-    <link rel="stylesheet" href="assets/css-files/projects-section.css">
+    <link rel="stylesheet" href="assets/css-files/intro-section.css">
     <title>Document</title>
 </head>
 
@@ -36,10 +36,10 @@
                 <div>
                     <svg class="mobile-nav-selector" width="15" height="60" viewBox="0 0 15 54" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path class="upper-mobile-svg-arrow" d="M7.5 40L13.9952 53.5H1.00481L7.5 40Z" fill="#FF2156" />
-                        <path class="lower-mobile-svg-arrow" d="M7.5 16L1.00481 4L13.9952 4L7.5 16Z" fill="#FF2156" />
+                        <path class="upper-mobile-svg-arrow" d="M7.5 16L1.00481 4L13.9952 4L7.5 16Z" fill="#FF2156" />
+                        <path class="lower-mobile-svg-arrow" d="M7.5 40L13.9952 53.5H1.00481L7.5 40Z" fill="#FF2156" />
                     </svg>
-                    <li class="intro-link-li"> <a href="#intro"><i class="fa-solid fa-door-open"></i></a></li>
+                    <li class="intro-link-li"> <a href="#intro"><i class="fa-solid fa-house"></i></i></i></a></li>
                     <li class="projects-link-li"><a href="#projects">my work</a></li>
                     <li class="principles-link-li"><a href="#principles">principles</a></li>
                     <li class="about-me-link-li"><a href="#about-me">about-me</a></li>
@@ -54,33 +54,46 @@
 
 
     <!-- Projects -->
-    <section class="container section intro-section">
+    <section class="container-fluid section intro-section">
         <div id="intro" class="anchor-scroll-tag"></div>
-        <h1>Welcome!</h1>
+        <div class="row g-3">
+            <div class="col-4  content-col">
+                <img class="in-page-profile-img" src="./assets/media/profile.jpg"
+                    alt="section picture of the developer">
+            </div>
+            <div class="col-8  content-column intro-content">
+                <div class="section-headnings">
+                    <h1>Bogdan</h1>
+                    <h1>Branzaniuc</h1>
+                    <h2>Full Stack Engineer</h1>
+                </div>
+            </div>
+        </div>
+
     </section>
-    <section class="container section projects-section">
+    <section class="container-fluid section projects-section">
         <div id="projects" class="anchor-scroll-tag"></div>
         <h1>My Work</h1>
     </section>
     <!-- Work History small in size, we'll see-->
     <!-- Principles -->
-    <section class="container section principles-section">
+    <section class="container-fluid section principles-section">
         <div id="principles" class="anchor-scroll-tag"></div>
         <h1>Principles</h1>
     </section>
     <!-- About Me -->
-    <section class="container section about-me-section">
+    <section class="container-fluid section about-me-section">
         <div id="about-me" class="anchor-scroll-tag"></div>
         <h1> about-me</h1>
     </section>
     <!-- Hobbies -->
-    <section class="container section hobbies-section">
+    <section class="container-fluid section hobbies-section">
         <div id="hobbies" class="anchor-scroll-tag"></div>
         </div>
         <h1>hobbies</h1>
     </section>
     <!-- Contact -->
-    <section class="container section contact-section">
+    <section class="container-fluid section contact-section">
         <div id="contact" class="anchor-scroll-tag"></div>
         </div>
         <h1>contact</h1>

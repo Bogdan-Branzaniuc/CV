@@ -143,6 +143,10 @@ nav {
         position: relative;
     }
 
+    .intro-link-li i {
+        font-size: smaller;
+    }
+
     .nav-spy-wrapper .image-and-svg-profile {
         display: none;
     }

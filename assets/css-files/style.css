@@ -17,20 +17,45 @@ body {
     position: relative;
     height: 100vh;
     color: #E06262;
+    padding: 50px
 }
 
-.intro-section {
-    margin-top: 200px;
+.section.row {
+    position: relative;
 }
 
-.projects-section {
-    height: 250vh;
+section .content-col {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+    height: 100%;
 }
 
-.principles-section {}
+.in-page-profile-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
 
-.about-me-section {}
+@media only screen and (max-width: 800px) {
+    .intro-section {
+        margin-top: 200px;
+    }
 
-.hobbies-section {}
+    .section {
+        padding: 20px
+    }
+}
 
-.contact-section {}
+@media only screen and (max-width: 500px) {
+
+    .section-headnings h1 {
+        font-size: 150%;
+    }
+
+    .section-headnings h2 {
+        font-size: 100%;
+    }
+}
