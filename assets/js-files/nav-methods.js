@@ -42,21 +42,15 @@ const changeNavliSize = function (navLi, sectionClass) {
 }
 
 
-const changeNavColors = function (selectors) {
+const changeNavColors = function (selectors, pageColors) {
     /** 
+     *creates the selector out of the section class passed through the navliChanged custom event 
      *changes the navBar colors based on the current section
      */
-    const pageColors = {
-        '.intro-section': ['#478B9A', '#478B1A', '#479A77'],
-        '.projects-section': ['#BDACD3', '#BDAC13', '#C891DC'],
-        '.principles-section': ['#F11D00', '#F11D10', '#F1002B'],
-        '.about-me-section': ['#527CA3', '#527C13', '#5264A3'],
-        '.hobbies-section': ['#E49A2B', '#E49A1B', '#E4792B'],
-        '.contact-section': ['#6D9A77', '#6D9A17', '#7E9A6D'],
-    }
     document.addEventListener('navliChanged', (e) => {
-        let currentColor = pageColors[e.detail.sectionClass][0]
-        let selectorsColor = pageColors[e.detail.sectionClass][2]
+        let colorKey = e.detail.sectionClass + '-color'
+        let currentColor = pageColors[colorKey][0]
+        let selectorsColor = pageColors[colorKey][1]
         let tl = new TimelineMax()
         tl.to(selectors.nav, {
             color: currentColor,
@@ -76,6 +70,28 @@ const changeNavColors = function (selectors) {
         }, '<')
         return tl
     })
+}
+const navAtagHover = function (selectors, pageColors) {
+    /** 
+     *hevering effect on navbar links
+     */
+    for (let a of selectors.navLinkATags) {
+        let tl = new TimelineMax()
+        a.addEventListener('mouseover', (e) => {
+            let colorKey = '.' + a.className.split(' ')[0]
+            tl.to(a, {
+                color: pageColors[colorKey][0],
+                duration: 0.2,
+                ease: Elastic.easeOut
+            })
+        })
+        a.addEventListener('mouseleave', (e) => {
+            tl.to(a, {
+                color: 'inherit',
+                duration: 0.2
+            })
+        })
+    }
 }
 
 let selectorsAnimationsTls = function (navLi, selectors) {
@@ -172,5 +188,6 @@ export {
     navSystem,
     selectorsAnimations,
     loadNavBar,
-    changeNavColors
+    changeNavColors,
+    navAtagHover,
 }
