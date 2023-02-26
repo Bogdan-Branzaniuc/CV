@@ -8,13 +8,13 @@ nav a {
 }
 
 nav a:hover {
-    color: #ff2146;
+    color: inherit;
+    scale: 1.1
 }
 
 .nav-heading {
     display: flex;
     flex-direction: column;
-    color: #FF2156;
     padding-left: 50px;
 }
 
@@ -30,6 +30,7 @@ nav {
             rgba(1, 20, 21, 1) 50%,
             rgba(1, 20, 21, 0.4234068627450981) 81%,
             rgba(1, 20, 21, 0) 100%);
+    color: inherit;
 }
 
 .row .navbar {
@@ -65,7 +66,6 @@ nav {
     line-height: 50px;
     display: block;
     position: relative;
-    color: #E06262;
     right: 30;
 }
 
@@ -117,7 +117,8 @@ nav {
     position: absolute;
     top: 0;
     left: 0;
-    border: solid 7px #FF2156;
+    border: solid 7px;
+    border-color: inherit;
     width: 100%;
     border-radius: 50%;
 }
@@ -211,10 +212,6 @@ nav {
         margin: 0 0.2em;
     }
 
-    .nav-spy-wrapper a:visited {
-        color: inherit;
-    }
-
     .nav-spy-wrapper div {
         position: relative;
     }
@@ -256,9 +253,10 @@ nav {
     }
 
     .nav-heading h1 {
-        font-size: 1.5em;
-        padding: 0.5em 0.3em 0 0.3;
-        line-height: 20px;
+        position: relative;
+        top: 0.2em;
+        left: 0.2em;
+        font-size: 1.65em;
     }
 
     .nav-heading a {

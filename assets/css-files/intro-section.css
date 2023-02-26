@@ -27,6 +27,16 @@
         border-radius: 50%;
     }
 
+    .in-page-other-img-div {
+        display: none;
+        width: 90px;
+        border-radius: 50%;
+    }
+
+    .in-page-other-img img {
+        width: 100%;
+    }
+
     .in-page-profile-wrapper svg {
         position: absolute;
         width: 150px;
@@ -35,9 +45,9 @@
 
 @media only screen and (max-width: 500px) {
     .in-page-profile-img {
-        width: 90px;
-        border-radius: 50%;
+        width: 100px;
     }
+
 
     .in-page-profile-wrapper svg {
         position: absolute;

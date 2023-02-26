@@ -16,7 +16,6 @@ body {
 .section {
     position: relative;
     height: 100vh;
-    color: #E06262;
     padding: 50px
 }
 
@@ -35,7 +34,6 @@ section .content-col {
 
 @media only screen and (max-width: 800px) {
 
-
     .intro-section {
         margin-top: 200px;
     }
@@ -47,11 +45,11 @@ section .content-col {
 
 @media only screen and (max-width: 500px) {
 
-    .section-headnings h1 {
+    .content-column h1 {
         font-size: 150%;
     }
 
-    .section-headnings h2 {
+    .content-column h2 {
         font-size: 100%;
     }
 }

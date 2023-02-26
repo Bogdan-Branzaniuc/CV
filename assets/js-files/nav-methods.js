@@ -5,39 +5,78 @@ const navSystem = function (selectors) {
      *applies changeNavliSize to all the navLinks
      */
     for (let navLi of selectors.navLinkLiElements) {
-        changeNavliSize(navLi, selectors)
+        let sectionClass = '.' + navLi.className.replace('-link-li', '-section')
+        changeNavliSize(navLi, sectionClass)
     }
 }
 
-const changeNavliSize = function (navLi, selectors) {
+
+const changeNavliSize = function (navLi, sectionClass) {
     /** 
      *creates the scrolltrigger that enlarges the current selected section link 
      *dispatch an event every time the scrolltrigger is stumbling across a break-point
      */
     const navliChanged = new CustomEvent('navliChanged', {
-        detail: {},
+        detail: {
+            sectionClass
+        },
         bubbles: true,
         cancelable: true,
         composed: false,
     })
-    let sectionClass = '.' + navLi.className.replace('-link-li', '-section')
+
     const resizeTl = new TimelineMax()
     resizeTl.to(navLi, {
         fontSize: "2em",
-        color: "rgb(255, 33, 86)",
         duration: 0.3,
         onComplete: () => navLi.dispatchEvent(navliChanged),
-    })
+    }, )
+
     return ScrollTrigger.create({
         animation: resizeTl,
         trigger: sectionClass,
         toggleActions: "play reverse play reverse",
         start: 'top 50%',
         end: 'bottom 50%',
-
     })
 }
 
+
+const changeNavColors = function (selectors) {
+    /** 
+     *changes the navBar colors based on the current section
+     */
+    const pageColors = {
+        '.intro-section': ['#478B9A', '#478B1A', '#479A77'],
+        '.projects-section': ['#BDACD3', '#BDAC13', '#C891DC'],
+        '.principles-section': ['#F11D00', '#F11D10', '#F1002B'],
+        '.about-me-section': ['#527CA3', '#527C13', '#5264A3'],
+        '.hobbies-section': ['#E49A2B', '#E49A1B', '#E4792B'],
+        '.contact-section': ['#6D9A77', '#6D9A17', '#7E9A6D'],
+    }
+    document.addEventListener('navliChanged', (e) => {
+        let currentColor = pageColors[e.detail.sectionClass][0]
+        let selectorsColor = pageColors[e.detail.sectionClass][2]
+        let tl = new TimelineMax()
+        tl.to(selectors.nav, {
+            color: currentColor,
+            duration: 0.3,
+        }, '<')
+        tl.to(selectors.navLogo, {
+            color: selectorsColor,
+            duration: 0.3,
+        }, '<')
+        tl.to(selectors.profileImmage, {
+            borderColor: selectorsColor,
+            duration: 0.3,
+        }, '<')
+        tl.to(selectors.navSvgPaths, {
+            fill: selectorsColor,
+            duration: 0.3,
+        }, '<')
+        return tl
+    })
+}
 
 let selectorsAnimationsTls = function (navLi, selectors) {
     /**
@@ -132,5 +171,6 @@ const loadNavBar = function (selectors) {
 export {
     navSystem,
     selectorsAnimations,
-    loadNavBar
+    loadNavBar,
+    changeNavColors
 }
