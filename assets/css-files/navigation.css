@@ -246,7 +246,9 @@ nav {
     }
 
     .nav-spy-wrapper {
-        font-size: 15px;
+        position: relative;
+        top: 6px;
+        font-size: 12px;
     }
 
     .nav-heading h1 {
