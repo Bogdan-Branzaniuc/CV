@@ -1,7 +1,8 @@
 import {
     gsap,
     TimelineMax,
-    Elastic
+    Elastic,
+    Power1
 } from '../../node_modules/gsap/index.js'
 import {
     ScrollTrigger
@@ -87,14 +88,14 @@ const navAtagHover = function (selectors, pageColors) {
             let colorKey = '.' + a.className.split(' ')[0]
             tl.to(a, {
                 color: pageColors[colorKey][0],
-                duration: 0.2,
-                ease: Elastic.easeOut
+                duration: 0.3,
+                ease: Power1
             })
         })
         a.addEventListener('mouseleave', (e) => {
             tl.to(a, {
                 color: 'inherit',
-                duration: 0.2
+                duration: 0.3
             })
         })
     }
@@ -156,6 +157,9 @@ const selectorsAnimations = function (selectors, master) {
 
 
 const loadNavBar = function (selectors) {
+    /**
+     * loads the nav-bar elements
+     **/
     const loadTl = new TimelineMax({
         defaults: {
             duration: 1

@@ -8,7 +8,10 @@ import {
 } from '../../node_modules/gsap/MorphSVGPlugin.js'
 gsap.registerPlugin(MorphSVGPlugin)
 
-let pdfSvgMouseover = function (svgPaths) {
+const pdfSvgMouseover = function (svgPaths) {
+    /**
+     * creates the timeline for touchstart or mouseover events
+     **/
     let tl = new TimelineMax()
     for (let gElement of svgPaths) {
         let startPath
@@ -28,7 +31,10 @@ let pdfSvgMouseover = function (svgPaths) {
     }
 }
 
-let pdfSfgMouseleave = function (svgPaths) {
+const pdfSfgMouseleave = function (svgPaths) {
+    /**
+     * creates the timeline for touchend or mouseleave events
+     **/
     let tl = new TimelineMax()
     for (let gElement of svgPaths) {
         for (let path of gElement.children) {
@@ -41,7 +47,10 @@ let pdfSfgMouseleave = function (svgPaths) {
     }
 }
 
-let hoverDownloadPDF = function (svgElement, svgPaths) {
+const hoverDownloadPDF = function (svgElement, svgPaths) {
+    /**
+     * animates the DownloadPDFSvg on hover or tocuh events
+     **/
     let hoverMain = new TimelineMax()
     svgElement.addEventListener('mouseover', () => {
         hoverMain.add(pdfSvgMouseover(svgPaths), '<')
@@ -58,6 +67,13 @@ let hoverDownloadPDF = function (svgElement, svgPaths) {
     return hoverMain
 }
 
+const loadIntroSection = function (selectors) {
+    /**
+     * loads the intro-section elements
+     **/
+}
+
 export {
-    hoverDownloadPDF
+    hoverDownloadPDF,
+    loadIntroSection
 }
