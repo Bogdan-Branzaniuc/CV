@@ -1,7 +1,6 @@
 import {
     gsap,
     TimelineMax,
-    Power2,
     Elastic
 } from '../../node_modules/gsap/index.js'
 import {
@@ -25,36 +24,39 @@ let pdfSvgMouseover = function (svgPaths) {
             morphSVG: endPath,
             duration: 0.5,
             ease: Elastic.easeOut,
-        }, '<')
+        }, '-=0.4')
     }
 }
+
 let pdfSfgMouseleave = function (svgPaths) {
     let tl = new TimelineMax()
     for (let gElement of svgPaths) {
         for (let path of gElement.children) {
             tl.to(path, {
                 morphSVG: path,
-                duration: 1,
+                duration: 0.5,
                 ease: Elastic.easeOut,
-            }, '<')
+            }, '-=0.45')
         }
     }
 }
+
 let hoverDownloadPDF = function (svgElement, svgPaths) {
+    let hoverMain = new TimelineMax()
     svgElement.addEventListener('mouseover', () => {
-        pdfSvgMouseover(svgPaths)
+        hoverMain.add(pdfSvgMouseover(svgPaths), '<')
     })
     svgElement.addEventListener('mouseleave', () => {
-        pdfSfgMouseleave(svgPaths)
+        hoverMain.add(pdfSfgMouseleave(svgPaths), )
     })
     svgElement.addEventListener('touchstart', () => {
-        pdfSvgMouseover(svgPaths)
+        hoverMain.add(pdfSvgMouseover(svgPaths), '+>')
     })
     svgElement.addEventListener('touchend', () => {
-        pdfSfgMouseleave(svgPaths)
+        hoverMain.add(pdfSfgMouseleave(svgPaths), '>')
     })
+    return hoverMain
 }
-
 
 export {
     hoverDownloadPDF
