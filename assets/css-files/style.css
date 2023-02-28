@@ -41,15 +41,20 @@ section .content-col {
     .section {
         padding: 20px
     }
+
+
 }
 
-@media only screen and (max-width: 500px) {
-
+@media only screen and (max-width: 600px) {
     .content-column h1 {
         font-size: 150%;
     }
 
     .content-column h2 {
-        font-size: 100%;
+        font-size: 110%;
+    }
+
+    .content-column p {
+        font-size: 90%;
     }
 }
