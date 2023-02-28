@@ -25,8 +25,9 @@ const navSelectors = {
     svgMobileSelectorLowerArrow: document.querySelector('.lower-mobile-svg-arrow'),
     profileImmage: document.querySelector('#profile-immage'),
 }
-const downloadPDFSvg = document.querySelector('.download-PDF')
-const downloadPDFSvgPaths = document.querySelectorAll('.download-PDF svg path')
+const downloadPDFSvg = document.querySelector('.download-PDF-svg-tag')
+const downloadPDFSvgPaths = document.querySelectorAll('.download-PDF-svg-tag svg > g>g')
+console.log(downloadPDFSvgPaths)
 const pageColors = {
     // first column = section and navlinks collors, second column = navlogo and selectors color
     '.intro-section-color': ['#478B9A', '#479A77'],

@@ -17,26 +17,20 @@
     overflow: visible;
 }
 
-.download-PDF {
+.download-PDF-svg-tag {
+    text-decoration: none;
+    color: inherit;
     display: flex;
     align-items: center;
     justify-content: left;
     flex-direction: column;
+    z-index: 500;
     width: 200px;
     border-radius: 50%;
 }
 
 .mobile-profile-immage-wrapper {
     display: none;
-}
-
-.download-PDF a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 500;
-    text-decoration: none;
-    color: inherit;
 }
 
 .proficient {
