@@ -15,7 +15,7 @@ body {
 /* sections */
 .section {
     position: relative;
-    height: 100vh;
+    height: 60vh;
     padding: 50px
 }
 

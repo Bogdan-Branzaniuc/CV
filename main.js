@@ -1,10 +1,17 @@
 import {
+    gsap,
+    TimelineMax
+} from './node_modules/gsap/index.js'
+import {
     navSystem,
     selectorsAnimations,
     loadNavBar,
     changeNavColors,
     navAtagHover,
-} from './nav-methods.js'
+} from './assets/js-files/nav-methods.js'
+import {
+    hoverDownloadPDF,
+} from './assets/js-files/intro-section-methods.js'
 
 const navSelectors = {
     nav: document.querySelector('nav'),
@@ -18,7 +25,8 @@ const navSelectors = {
     svgMobileSelectorLowerArrow: document.querySelector('.lower-mobile-svg-arrow'),
     profileImmage: document.querySelector('#profile-immage'),
 }
-
+const downloadPDFSvg = document.querySelector('.download-PDF')
+const downloadPDFSvgPaths = document.querySelectorAll('.download-PDF svg path')
 const pageColors = {
     // first column = section and navlinks collors, second column = navlogo and selectors color
     '.intro-section-color': ['#478B9A', '#479A77'],
@@ -34,3 +42,5 @@ master.add(loadNavBar(navSelectors))
 master.add(navAtagHover(navSelectors, pageColors), '<')
 selectorsAnimations(navSelectors, master)
 master.add(changeNavColors(navSelectors, pageColors), '<')
+
+hoverDownloadPDF(downloadPDFSvg, downloadPDFSvgPaths)

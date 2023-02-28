@@ -1,5 +1,12 @@
+import {
+    gsap,
+    TimelineMax,
+    Elastic
+} from '../../node_modules/gsap/index.js'
+import {
+    ScrollTrigger
+} from '../../node_modules/gsap/ScrollTrigger.js'
 gsap.registerPlugin(ScrollTrigger)
-
 const navSystem = function (selectors) {
     /** 
      *applies changeNavliSize to all the navLinks
@@ -9,7 +16,6 @@ const navSystem = function (selectors) {
         changeNavliSize(navLi, sectionClass)
     }
 }
-
 
 const changeNavliSize = function (navLi, sectionClass) {
     /** 
@@ -25,7 +31,7 @@ const changeNavliSize = function (navLi, sectionClass) {
         composed: false,
     })
 
-    const resizeTl = new TimelineMax()
+    const resizeTl = gsap.timeline()
     resizeTl.to(navLi, {
         fontSize: "2em",
         duration: 0.3,

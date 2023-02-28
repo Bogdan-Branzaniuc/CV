@@ -3,8 +3,47 @@
     color: #478B9A;
 }
 
-.in-page-profile-wrapper {
+.in-page-circle-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.in-page-circle-wrapper svg {
+    overflow: visible;
+}
+
+.download-PDF {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.mobile-profile-immage-wrapper {
     display: none;
+}
+
+.download-PDF a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+    text-decoration: none;
+    color: inherit;
+}
+
+.proficient {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 100px 0px 30px 0px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -13,38 +52,28 @@
     }
 
     .in-page-profile-wrapper {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         height: 100px;
         width: 100px;
-        border-radius: 50%;
     }
 
-    .in-page-profile-img {
+    .download-PDF {
         width: 90px;
         border-radius: 50%;
     }
 
-    .in-page-other-img-div {
-        display: none;
-        width: 90px;
-        border-radius: 50%;
+    .in-page-circle-wrapper svg {
+        max-width: 100px;
     }
 
-    .in-page-other-img img {
-        width: 100%;
-    }
-
-    .in-page-profile-wrapper svg {
-        position: absolute;
+    .in-page-circle-wrapper svg {
         width: 150px;
     }
+
+
 }
 
 @media only screen and (max-width: 500px) {
-    .in-page-profile-img {
+    .in-page-download-PDF {
         width: 100px;
     }
 
