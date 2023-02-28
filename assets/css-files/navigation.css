@@ -271,10 +271,12 @@ nav {
 
     .nav-heading h1 {
         font-size: 1.3em;
+        top: 0.35em;
         padding: 0.4em;
     }
 
     .nav-heading a {
+
         padding-top: 0.2em;
     }
 }
