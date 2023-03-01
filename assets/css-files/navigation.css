@@ -178,6 +178,8 @@ nav {
     }
 
     .nav-heading {
+        display: flex;
+        justify-content: center;
         min-width: 25%;
         padding: 0.3em;
         height: 100%;
@@ -196,10 +198,12 @@ nav {
     }
 
     .nav-spy-wrapper {
+        display: flex;
+        justify-content: center;
         min-width: 75%;
+        left: 0;
         padding: 0;
         font-size: 12px;
-        left: 0;
     }
 
     .nav-spy-wrapper li {
