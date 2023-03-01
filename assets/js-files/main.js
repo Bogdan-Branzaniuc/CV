@@ -1,16 +1,16 @@
 import {
     TimelineMax
-} from './node_modules/gsap/index.js'
+} from '../../node_modules/gsap/index.js'
 import {
     navSystem,
     selectorsAnimations,
     loadNavBar,
     changeNavColors,
     navAtagHover,
-} from './assets/js-files/nav-methods.js'
+} from './nav-methods.js'
 import {
     hoverDownloadPDF,
-} from './assets/js-files/intro-section-methods.js'
+} from './intro-section-methods.js'
 
 const pageColors = {
     /**
