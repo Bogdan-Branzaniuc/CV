@@ -1,6 +1,6 @@
 import {
     TimelineMax
-} from '../../node_modules/gsap/index.js'
+} from 'gsap'
 import {
     navSystem,
     selectorsAnimations,

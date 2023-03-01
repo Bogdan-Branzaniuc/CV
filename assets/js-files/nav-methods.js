@@ -3,7 +3,7 @@ import {
     TimelineMax,
     Elastic,
     Power1
-} from '../../node_modules/gsap/index.js'
+} from '/workspace/CV/node_modules/gsap/index.js'
 import {
     ScrollTrigger
 } from '../../node_modules/gsap/ScrollTrigger.js'
