@@ -2,7 +2,7 @@ import {
     gsap,
     TimelineMax,
     Elastic
-} from "/node_modules/gsap/index.js"
+} from "https://github.com/Bogdan-Branzaniuc/CV/node_modules/gsap/index.js"
 
 
 import {
