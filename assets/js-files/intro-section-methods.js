@@ -2,10 +2,12 @@ import {
     gsap,
     TimelineMax,
     Elastic
-} from '/node_modules/gsap/index.js'
+} from "/node_modules/gsap/index.js"
+
+
 import {
     MorphSVGPlugin
-} from '/node_modules/gsap/MorphSVGPlugin.js'
+} from "/node_modules/gsap/MorphSVGPlugin.js"
 
 gsap.registerPlugin(MorphSVGPlugin)
 const pdfSvgMouseover = function (svgPaths) {
