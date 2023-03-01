@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "gsap": "npm:@gsap/shockingly@^3.11.4"
+  },
+  "devDependencies": {
+    "@types/gsap": "^3.0.0",
+    "@types/node": "^18.14.2"
   }
 }
