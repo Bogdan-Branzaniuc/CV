@@ -24,10 +24,9 @@ body {
 }
 
 section .content-col {
-    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: left;
+    align-items: left;
+    justify-content: top;
     flex-direction: column;
     height: 100%;
 }

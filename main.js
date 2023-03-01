@@ -1,5 +1,4 @@
 import {
-    gsap,
     TimelineMax
 } from './node_modules/gsap/index.js'
 import {
@@ -18,7 +17,7 @@ const pageColors = {
      * first column = section and navlinks collors, second column = navlogo and selectors color
      **/
     '.intro-section-color': ['#478B9A', '#479A77'],
-    '.projects-section-color': ['#BDACD3', '#DC91C2'],
+    '.work-section-color': ['#BDACD3', '#DC91C2'],
     '.principles-section-color': ['#F11D00', '#F11D10', '#F1002B'],
     '.about-me-section-color': ['#527CA3', '#5264A3'],
     '.hobbies-section-color': ['#E49A2B', '#E4792B'],

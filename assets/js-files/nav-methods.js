@@ -107,7 +107,7 @@ let selectorsAnimationsTls = function (navLi, selectors) {
      **/
     let rotationDegrees = {
         'intro-link-li': 3,
-        'projects-link-li': 25,
+        'work-link-li': 25,
         'principles-link-li': 60,
         'about-me-link-li': 90,
         'hobbies-link-li': 120,
