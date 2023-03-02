@@ -11,6 +11,9 @@ import {
 import {
     hoverDownloadPDF,
 } from './intro-section-methods.js'
+import {
+    mapTest,
+} from './work-section.js'
 
 const pageColors = {
     /**
@@ -48,3 +51,7 @@ selectorsAnimations(navSelectors, master)
 master.add(changeNavColors(navSelectors, pageColors), '<')
 
 hoverDownloadPDF(introSelectors.downloadPDFSvg, introSelectors.downloadPDFSvgPaths)
+
+let svgStart = document.querySelector('#svg1')
+let svgEnd = document.querySelector('#svg2')
+mapTest(svgStart, svgEnd)
