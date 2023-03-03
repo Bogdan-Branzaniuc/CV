@@ -5,7 +5,7 @@ let svgTestHtml = `
       .cls-100 {
         fill: yellow;
       }
-      #eqjs-path{
+      #turing{
         width:200px;
         display:none;
       }

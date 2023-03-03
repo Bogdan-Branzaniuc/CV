@@ -29,6 +29,7 @@ section .content-col {
     justify-content: top;
     flex-direction: column;
     height: 100%;
+    border: solid 1px red;
 }
 
 @media only screen and (max-width: 800px) {

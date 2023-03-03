@@ -53,7 +53,7 @@ master.add(changeNavColors(navSelectors, pageColors), '<')
 
 hoverDownloadPDF(introSelectors.downloadPDFSvg, introSelectors.downloadPDFSvgPaths)
 
-mapTest()
+//mapTest()
 
 
 // let selector = document.querySelector('#turing')
