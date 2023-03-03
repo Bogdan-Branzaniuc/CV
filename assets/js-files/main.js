@@ -13,7 +13,8 @@ import {
 } from './intro-section-methods.js'
 import {
     mapTest,
-} from './work-section.js'
+    createSinglePath
+} from './development-helpers.js'
 
 const pageColors = {
     /**
@@ -52,6 +53,8 @@ master.add(changeNavColors(navSelectors, pageColors), '<')
 
 hoverDownloadPDF(introSelectors.downloadPDFSvg, introSelectors.downloadPDFSvgPaths)
 
-let svgStart = document.querySelector('#svg1')
-let svgEnd = document.querySelector('#svg2')
-mapTest(svgStart, svgEnd)
+mapTest()
+
+
+// let selector = document.querySelector('#turing')
+// createSinglePath(selector, 'turing', 'cls-200')
