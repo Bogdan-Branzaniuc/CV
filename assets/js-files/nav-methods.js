@@ -8,6 +8,7 @@ import {
     ScrollTrigger
 } from '../node_modules/gsap/ScrollTrigger.js'
 gsap.registerPlugin(ScrollTrigger)
+
 const navSystem = function (selectors) {
     /** 
      *applies changeNavliSize to all the navLinks

@@ -2,6 +2,24 @@
     color: #BDACD3;
 }
 
+.work-section .btn {
+    color: inherit;
+}
+
 .work-buttons-wrapper {
     height: 100%;
+}
+
+.work-slider-row-height {
+    position: relative;
+    min-height: 40px;
+}
+
+.work-slider {
+    position: absolute;
+    left: -40px;
+}
+
+.four-items-section {
+    height: 400vh;
 }
