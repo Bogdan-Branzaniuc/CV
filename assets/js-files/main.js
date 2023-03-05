@@ -15,6 +15,11 @@ import {
     mapTest,
     createSinglePath
 } from './development-helpers.js'
+import {
+    main as workMain
+}
+from './work-section.js'
+
 
 const pageColors = {
     /**
@@ -53,6 +58,7 @@ master.add(changeNavColors(navSelectors, pageColors), '<')
 
 hoverDownloadPDF(introSelectors.downloadPDFSvg, introSelectors.downloadPDFSvgPaths)
 
+workMain()
 //mapTest()
 
 

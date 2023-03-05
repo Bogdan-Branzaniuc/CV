@@ -1,5 +1,38 @@
 .work-section {
     color: #BDACD3;
+    position: relative;
+}
+
+.pin-tab-inner-breaking-point {
+    position: absolute;
+}
+
+.pin-b-1 {
+    top: 15vh;
+}
+
+.pin-b-2 {
+    top: 115vh;
+}
+
+.pin-b-3 {
+    top: 215vh;
+}
+
+.pin-b-4 {
+    top: 315vh;
+}
+
+.pin-b-5 {
+    top: 415vh;
+}
+
+.tab-num-elements-3 {
+    height: 300vh
+}
+
+.tab-num-elements-5 {
+    height: 500vh
 }
 
 .work-section .btn {
@@ -18,8 +51,4 @@
 .work-slider {
     position: absolute;
     left: -40px;
-}
-
-.four-items-section {
-    height: 400vh;
 }
