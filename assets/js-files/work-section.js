@@ -7,8 +7,10 @@ import {
 import {
     ScrollTrigger
 } from '../node_modules/gsap/ScrollTrigger.js'
+
 gsap.registerPlugin(ScrollTrigger)
 ScrollTrigger.refresh()
+
 const section = $('.work-section')
 const dashboard = $('.work-dashboard')
 const studiesBtn = $('.work-studies-button')
@@ -25,17 +27,15 @@ const projectsInfo = $('.projects-info')
 const studiesInfo = $('.studies-info')
 const algosInfo = $('.algos-info')
 
+const helperConstants = {
+    scrolltriggerEnter: false,
+}
+
 let mainButtonsHandlerProjects = function () {
     projectsInfo.show()
     studiesInfo.hide()
     algosInfo.hide()
-    let tl = new TimelineMax()
-    tl.from('.info-wrapper', {
-        opacity: 0,
-        x: 200,
-    })
     section.height('300vh')
-
     // github svg change
     // 
 }
@@ -43,48 +43,13 @@ let mainButtonsHandlerStudies = function () {
     projectsInfo.hide()
     studiesInfo.show()
     algosInfo.hide()
-    let tl = new TimelineMax()
-    tl.from('.info-wrapper', {
-        opacity: 0,
-        x: 200,
-    })
     section.height('300vh')
 }
 let mainButtonsHandlerAlgos = function () {
-    let tl = new TimelineMax()
-    tl.from('.info-wrapper', {
-        opacity: 0,
-        x: 200,
-    })
     projectsInfo.hide()
     studiesInfo.hide()
     algosInfo.show()
-    section.height('500vh')
-}
-
-let mainButtonsHandler = function (e) {
-    const mainButtonPressed = new CustomEvent('mainButtonPressed', {
-        detail: currentTabAndSvg,
-        bubbles: true,
-        cancelable: true,
-        composed: false,
-    })
-    let classes = e.target.className.split(' ')
-    if (classes[classes.length - 1] == 'work-projects-button') {
-        mainButtonsHandlerProjects()
-        currentTabAndSvg.tab = 'p'
-        console.log(currentTabAndSvg)
-    } else if (classes[classes.length - 1] == 'work-studies-button') {
-        mainButtonsHandlerStudies()
-        currentTabAndSvg.tab = 's'
-        console.log(currentTabAndSvg)
-    } else if (classes[classes.length - 1] == 'work-algo-button') {
-        mainButtonsHandlerAlgos()
-        currentTabAndSvg.tab = 'a'
-        console.log(currentTabAndSvg)
-    }
-    document.dispatchEvent(mainButtonPressed)
-    ScrollTrigger.refresh()
+    section.height('450vh')
 }
 
 
@@ -101,44 +66,72 @@ let dashboardToFixed = function () {
 
 
 const updateInnerTabElementSvg = function () {
-    /* Updates the svg of the current scrolld-to tabElement */
+    /* Updates the svg of the current scrolled-to tabElement
+     when changing tabs and scrolling through their elements*/
     let currentSvg = currentTabAndSvg[currentTabAndSvg.tab] //default projects svg
     let maintl = new TimelineMax()
+    const tabSvgUpdate = (currentSvgSource) => {
+        let exSvgId = '#' + currentSvg
+        currentSvg = currentSvgSource
+        let currentSvgId = '#' + currentSvg
+        let tl = new TimelineMax()
 
+        if (exSvgId != currentSvgId) {
+            tl.to($(currentSvgId), {
+                x: 50,
+                duration: 0.5,
+            })
+            tl.to($(exSvgId), {
+                x: 0,
+            }, '<')
+        }
+        maintl.add(tl)
+    }
     document.addEventListener('tabElementChanged', (e) => {
         let tabElementClass = e.detail.className.split(' ')[1]
         let elementCategory = tabElementClass[tabElementClass.length - 1].toLowerCase()
         currentTabAndSvg[elementCategory] = tabElementClass
-        console.log(currentTabAndSvg)
         if (currentTabAndSvg.tab == elementCategory) {
-            let exSvg = currentSvg
-            currentSvg = tabElementClass
-            let tl = new TimelineMax()
-            tl.to($('#' + currentSvg), {
-                x: 50,
-            })
-            tl.to($('#' + exSvg), {
-                x: 0,
-            }, '>')
-            maintl.add(tl)
+            tabSvgUpdate(tabElementClass)
         }
     })
-
     document.addEventListener('mainButtonPressed', (e) => {
-        let exSvg = currentSvg
-        currentSvg = e.detail[e.detail.tab]
-        let tl = new TimelineMax()
-        tl.to($('#' + currentSvg), {
-            x: 50,
-        })
-        tl.to($('#' + exSvg), {
-            x: 0,
-        }, '>')
-        maintl.add(tl)
+        tabSvgUpdate(e.detail[e.detail.tab])
     })
-
 }
 
+
+let mainButtonsHandler = function (e) {
+    // the custom event sends the old currentTabAndSvg configuration as detail
+    // the dom event e sets the new configuration by case
+    const mainButtonPressed = new CustomEvent('mainButtonPressed', {
+        detail: currentTabAndSvg,
+        bubbles: true,
+        cancelable: true,
+        composed: false,
+    })
+    let btnClasses = e.target.className.split(' ')
+    if (btnClasses[btnClasses.length - 1] == 'work-projects-button') {
+        mainButtonsHandlerProjects()
+        currentTabAndSvg.tab = 'p'
+    } else if (btnClasses[btnClasses.length - 1] == 'work-studies-button') {
+        mainButtonsHandlerStudies()
+        currentTabAndSvg.tab = 's'
+    } else if (btnClasses[btnClasses.length - 1] == 'work-algo-button') {
+        mainButtonsHandlerAlgos()
+        currentTabAndSvg.tab = 'a'
+    }
+    let tl = new TimelineMax()
+    tl.fromTo('.info-wrapper', {
+        opacity: 0,
+        x: 200,
+    }, {
+        opacity: 100,
+        x: 0,
+    })
+    document.dispatchEvent(mainButtonPressed)
+    ScrollTrigger.refresh()
+}
 
 let main = function () {
     mainButtonsHandlerProjects() //default projects tab
@@ -160,14 +153,17 @@ let main = function () {
 const createTabsScrollTriggers = function (tabInfo) {
     /*Creates a scrolltrigger for each of the three tabs, as they have multiple elements inside*/
     let count = 1
+
     for (let element of tabInfo) {
-        console.log(element)
         const innerTabNewElement = new CustomEvent('tabElementChanged', {
             detail: element,
             bubbles: true,
             cancelable: true,
             composed: false,
         })
+
+        let scrollTriggerId = 'scrollTrigger-' + tabInfo.attr('class').split(' ')[0] + count
+        //console.log(scrollTriggerId)
 
         let pinBreakPoint = $(`.pin-b-${count}`)
         let nextBreakPoint = $(`.pin-b-${count+1}`)
@@ -186,9 +182,9 @@ const createTabsScrollTriggers = function (tabInfo) {
             x: 200,
             opacity: 0,
         })
-
         ScrollTrigger.create({
             trigger: pinBreakPoint,
+            id: scrollTriggerId,
             start: 'top 50%',
             endTrigger: nextBreakPoint,
             end: 'top 50%',
