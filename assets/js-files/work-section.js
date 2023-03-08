@@ -84,19 +84,18 @@ const updateInnerTabElementSvg = function () {
         let currentSvgFill = $('.' + currentSvg + '-fill').css('fill')
         let currentSvgStroke = $('.' + currentSvg + '-fill').css('stroke')
         console.log(currentSvgFill)
-        tl.to(workSvgMainPathId, {
-            morphSVG: {
-                shape: currentSvgId,
-                map: "complexity",
-                type: 'rotational',
-            },
-            duration: 1.6,
-            fill: currentSvgFill,
-            stroke: currentSvgStroke,
-            ease: Elastic.easeOut,
-
-        })
-
+        if (currentSvgId != exSvgId) {
+            tl.to(workSvgMainPathId, {
+                morphSVG: {
+                    shape: currentSvgId,
+                    type: 'rotational',
+                },
+                duration: 1.6,
+                fill: currentSvgFill,
+                stroke: currentSvgStroke,
+                ease: Elastic.easeOut,
+            })
+        }
         maintl.add(tl)
     }
     document.addEventListener('tabElementChanged', (e) => {
