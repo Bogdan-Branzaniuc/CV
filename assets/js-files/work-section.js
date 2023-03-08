@@ -8,7 +8,12 @@ import {
     ScrollTrigger
 } from '../node_modules/gsap/ScrollTrigger.js'
 
+import {
+    MorphSVGPlugin
+} from '../node_modules/gsap/MorphSVGPlugin.js'
+
 gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(MorphSVGPlugin)
 ScrollTrigger.refresh()
 
 const section = $('.work-section')
@@ -27,9 +32,7 @@ const projectsInfo = $('.projects-info')
 const studiesInfo = $('.studies-info')
 const algosInfo = $('.algos-info')
 
-const helperConstants = {
-    scrolltriggerEnter: false,
-}
+let workSvgMainPathId = '#nuclearFusionP'
 
 let mainButtonsHandlerProjects = function () {
     projectsInfo.show()
@@ -69,22 +72,31 @@ const updateInnerTabElementSvg = function () {
     /* Updates the svg of the current scrolled-to tabElement
      when changing tabs and scrolling through their elements*/
     let currentSvg = currentTabAndSvg[currentTabAndSvg.tab] //default projects svg
-    let maintl = new TimelineMax()
+
     const tabSvgUpdate = (currentSvgSource) => {
+        let maintl = new TimelineMax()
         let exSvgId = '#' + currentSvg
         currentSvg = currentSvgSource
         let currentSvgId = '#' + currentSvg
         let tl = new TimelineMax()
 
-        if (exSvgId != currentSvgId) {
-            tl.to($(currentSvgId), {
-                x: 50,
-                duration: 0.5,
-            })
-            tl.to($(exSvgId), {
-                x: 0,
-            }, '<')
-        }
+        console.log(exSvgId, currentSvgId)
+        let currentSvgFill = $('.' + currentSvg + '-fill').css('fill')
+        let currentSvgStroke = $('.' + currentSvg + '-fill').css('stroke')
+        console.log(currentSvgFill)
+        tl.to(workSvgMainPathId, {
+            morphSVG: {
+                shape: currentSvgId,
+                map: "complexity",
+                type: 'rotational',
+            },
+            duration: 1,
+            fill: currentSvgFill,
+            stroke: currentSvgStroke,
+            ease: Elastic.easeOut,
+
+        })
+
         maintl.add(tl)
     }
     document.addEventListener('tabElementChanged', (e) => {

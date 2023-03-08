@@ -8,9 +8,14 @@
     color: inherit;
 }
 
-/* .work-svg {
-    opacity: 0;
-} */
+.work-svg {
+    display: none;
+}
+
+.first-svg {
+    display: block;
+}
+
 
 .pin-tab-inner-breaking-point {
     position: absolute;
