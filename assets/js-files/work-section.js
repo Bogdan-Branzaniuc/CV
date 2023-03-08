@@ -90,7 +90,7 @@ const updateInnerTabElementSvg = function () {
                 map: "complexity",
                 type: 'rotational',
             },
-            duration: 1,
+            duration: 1.6,
             fill: currentSvgFill,
             stroke: currentSvgStroke,
             ease: Elastic.easeOut,
