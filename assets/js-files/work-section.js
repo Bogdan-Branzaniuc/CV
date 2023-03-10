@@ -1,6 +1,7 @@
 import {
     gsap,
     TimelineMax,
+    TweenMax,
     Elastic,
     Power1
 } from '../node_modules/gsap/index.js'
@@ -12,8 +13,13 @@ import {
     MorphSVGPlugin
 } from '../node_modules/gsap/MorphSVGPlugin.js'
 
+import {
+    Draggable
+} from '../node_modules/gsap/Draggable.js'
+
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(MorphSVGPlugin)
+gsap.registerPlugin(Draggable)
 ScrollTrigger.refresh()
 
 const section = $('.work-section')
@@ -80,10 +86,8 @@ const updateInnerTabElementSvg = function () {
         let currentSvgId = '#' + currentSvg
         let tl = new TimelineMax()
 
-        console.log(exSvgId, currentSvgId)
         let currentSvgFill = $('.' + currentSvg + '-fill').css('fill')
         let currentSvgStroke = $('.' + currentSvg + '-fill').css('stroke')
-        console.log(currentSvgFill)
         if (currentSvgId != exSvgId) {
             tl.to(workSvgMainPathId, {
                 morphSVG: {
@@ -144,6 +148,62 @@ let mainButtonsHandler = function (e) {
     ScrollTrigger.refresh()
 }
 
+//create drag
+
+
+// let animation = TweenMax.to("#drag-box", {
+//     y: -500,
+// })
+
+// let sectionScroll = ScrollTrigger.create({
+//     trigger: '.work-section',
+//     animation: animation,
+//     start: 'top 0%',
+//     scrub: true,
+//     end: 'bottom 90%',
+// })
+
+
+
+
+let dragDragger = function () {
+    Draggable.create("#drag-box", {
+        type: "y,x",
+        bounds: '.vertical-work-slider',
+        edgeResistance: 0.65,
+        onDrag: dropItem,
+    });
+    let vertical = true
+
+    function dropItem() {
+        console.log(this.y, this.x)
+        if (this.y < 10 && vertical) {
+            console.log('horizontal')
+            this.applyBounds('.horizontal-work-slider')
+            this.update(true, true)
+            $(this.target).appendTo('.horizontal-work-slider')
+            TweenMax.to('.vertical-work-slider', {
+                x: 100,
+                duration: 0.5,
+            })
+            console.log()
+            vertical = false
+        } else if (this.x < 10 && this.y < 10 && !vertical) {
+            console.log('vertical')
+            this.applyBounds('.vertical-work-slider')
+            this.update(true, true)
+            $(this.target).appendTo('.vertical-work-slider')
+            console.log(this)
+            vertical = true
+        }
+    }
+
+
+}
+
+
+
+
 let main = function () {
     mainButtonsHandlerProjects() //default projects tab
     for (let btn of [studiesBtn, projectsBtn, algoBtn]) {
@@ -154,8 +214,8 @@ let main = function () {
     createTabsScrollTriggers(projectsInfo)
     createTabsScrollTriggers(studiesInfo)
     createTabsScrollTriggers(algosInfo)
-
     updateInnerTabElementSvg()
+    dragDragger()
     // update slider animation method
     dashboardToFixed()
 }
