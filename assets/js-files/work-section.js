@@ -75,7 +75,7 @@ let dashboardToFixed = function () {
 
     let stAnimation = new TimelineMax()
     stAnimation.to('#github-icon-bg', {
-        transformOrigin: "center center",
+        transformOrigin: "530px 530px",
         rotate: 500,
     })
 
