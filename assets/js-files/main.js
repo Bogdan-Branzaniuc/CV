@@ -59,8 +59,9 @@ master.add(changeNavColors(navSelectors, pageColors), '<')
 hoverDownloadPDF(introSelectors.downloadPDFSvg, introSelectors.downloadPDFSvgPaths)
 
 workMain()
+
+
+// HELPERS FOR SVG SINGLE PATH CREATION
 //mapTest()
-
-
-// let selector = document.querySelector('#turing')
-// createSinglePath(selector, 'turing', 'cls-200')
+// let selector = document.querySelector('#icon-123')
+// createSinglePath(selector, 'github-icon-mad', '')

@@ -52,13 +52,41 @@
     height: 500vh
 }
 
+
+/* ########### github svg, heading and tab-buttons **********/
+#github-icon-svg {
+    height: 200px;
+    overflow: visible;
+}
+
+.github-icon-tag {
+    display: flex;
+    justify-content: center;
+    height: 80%;
+    width: 100%
+}
+
+.work-heading-container {
+    display: flex;
+    align-items: left;
+}
+
 .work-section .btn {
     color: inherit;
+    width: 30%;
 }
 
 .work-buttons-wrapper {
-    height: 100%;
+    width: 100%;
 }
+
+.work-buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
 
 /* ########### scroll interractive Slider ##########*/
 
@@ -66,14 +94,15 @@
 
 
 /* *************** Tabs Info ************** */
-#github-icon-svg {
-    max-width: 300px;
-}
+
 
 .info-wrapper {
     min-height: 20vh;
 }
 
+.work-info-and-svgs-row {
+    max-height: 30vh;
+}
 
 
 .projects-info,

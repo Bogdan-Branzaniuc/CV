@@ -28,12 +28,10 @@ section .content-col {
     align-items: left;
     justify-content: top;
     flex-direction: column;
-    height: 100%;
     border: solid 1px red;
 }
 
 @media only screen and (max-width: 800px) {
-
     .intro-section {
         margin-top: 200px;
     }
@@ -41,8 +39,6 @@ section .content-col {
     .section {
         padding: 20px
     }
-
-
 }
 
 @media only screen and (max-width: 600px) {

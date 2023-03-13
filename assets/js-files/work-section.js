@@ -37,17 +37,20 @@ let currentTabAndSvg = {
     s: 'eloquentJs',
     a: 'two-plus-two',
 }
+let currentGithubShape = '#github-icon'
+let workSvgMainPathId = '#nuclearFusionP'
+
 const projectsInfo = $('.projects-info')
 const studiesInfo = $('.studies-info')
 const algosInfo = $('.algos-info')
 
-let workSvgMainPathId = '#nuclearFusionP'
 
 let mainButtonsHandlerProjects = function () {
     projectsInfo.show()
     studiesInfo.hide()
     algosInfo.hide()
     section.height('300vh')
+    githubSvgTo('#github-icon-svg')
     // github svg change
     // 
 }
@@ -56,26 +59,68 @@ let mainButtonsHandlerStudies = function () {
     studiesInfo.show()
     algosInfo.hide()
     section.height('300vh')
+    githubSvgTo('#github-icon-nerd-svg')
 }
 let mainButtonsHandlerAlgos = function () {
     projectsInfo.hide()
     studiesInfo.hide()
     algosInfo.show()
     section.height('450vh')
+    githubSvgTo('#github-icon-mad-svg')
 }
 
-
 let dashboardToFixed = function () {
-    /* Pinns the dashboard when scrolling */
+    /* Pinns the dashboard when scrolling 
+       Animates the github svg */
+
+    let stAnimation = new TimelineMax()
+    stAnimation.to('#github-icon-bg', {
+        transformOrigin: "center center",
+        rotate: 500,
+    })
+
     ScrollTrigger.create({
         trigger: dashboard,
         start: 'top 24%',
+        animation: stAnimation,
         pin: dashboard,
+        scrub: 2,
         endTrigger: section,
         end: 'bottom 90%',
     })
 }
 
+
+let githubSvgTo = function (githubTarget) {
+    let github = '#github-icon'
+    let githubBg = github + '-bg'
+
+    githubTarget = githubTarget.replace('-svg', '')
+    let githubTargetBg = githubTarget + '-bg'
+
+    if (githubTarget != currentGithubShape) {
+        let tl = new TimelineMax()
+        tl.to(github, {
+            morphSVG: {
+                shape: githubTarget,
+                type: 'rotational',
+                map: 'complexity',
+            },
+            duration: 3,
+            ease: Elastic.easeOut,
+        })
+        tl.to(githubBg, {
+            morphSVG: {
+                shape: githubTargetBg,
+                type: 'linear',
+                map: 'complexity',
+            },
+            duration: 3,
+            ease: Elastic.easeOut,
+        }, '<')
+    }
+    currentGithubShape = githubTarget
+}
 
 const updateInnerTabElementSvg = function () {
     /* Updates the svg of the current scrolled-to tabElement
@@ -96,11 +141,12 @@ const updateInnerTabElementSvg = function () {
                 morphSVG: {
                     shape: currentSvgId,
                     type: 'rotational',
+                    map: 'complexity',
                 },
-                duration: 1.6,
+                duration: 1.5,
                 fill: currentSvgFill,
                 stroke: currentSvgStroke,
-                ease: Elastic.easeOut,
+                ease: Elastic.easeOut.config(1.1, 0.4),
             })
         }
         maintl.add(tl)
