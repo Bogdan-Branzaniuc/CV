@@ -14,19 +14,18 @@ import {
 import {
     Draggable
 } from '../node_modules/gsap/Draggable.js'
-import {
-    MotionPathPlugin
-} from '../node_modules/gsap/MotionPathPlugin.js'
 
+import {
+    dashboardToFixed,
+    draggableTrigger
+} from './work-section-scrolling.js'
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(MorphSVGPlugin)
 gsap.registerPlugin(Draggable)
-gsap.registerPlugin(MotionPathPlugin)
 
 ScrollTrigger.refresh()
 
 const section = $('.work-section')
-const dashboard = $('.work-dashboard')
 const studiesBtn = $('.work-studies-button')
 const projectsBtn = $('.work-projects-button')
 const algoBtn = $('.work-algo-button')
@@ -51,8 +50,6 @@ let mainButtonsHandlerProjects = function () {
     algosInfo.hide()
     section.height('300vh')
     githubSvgTo('#github-icon-svg')
-    // github svg change
-    // 
 }
 let mainButtonsHandlerStudies = function () {
     projectsInfo.hide()
@@ -69,32 +66,10 @@ let mainButtonsHandlerAlgos = function () {
     githubSvgTo('#github-icon-mad-svg')
 }
 
-let dashboardToFixed = function () {
-    /* Pinns the dashboard when scrolling 
-       Animates the github svg */
-
-    let stAnimation = new TimelineMax()
-    stAnimation.to('#github-icon-bg', {
-        transformOrigin: "530px 530px",
-        rotate: 500,
-    })
-
-    ScrollTrigger.create({
-        trigger: dashboard,
-        start: 'top 24%',
-        animation: stAnimation,
-        pin: dashboard,
-        scrub: 2,
-        endTrigger: section,
-        end: 'bottom 90%',
-    })
-}
-
 
 let githubSvgTo = function (githubTarget) {
     let github = '#github-icon'
     let githubBg = github + '-bg'
-
     githubTarget = githubTarget.replace('-svg', '')
     let githubTargetBg = githubTarget + '-bg'
 
@@ -214,9 +189,9 @@ let main = function () {
     createTabsScrollTriggers(studiesInfo)
     createTabsScrollTriggers(algosInfo)
     updateInnerTabElementSvg()
-
-    // update slider animation method
     dashboardToFixed()
+    // update slider animation method
+    draggableTrigger()
 }
 
 
