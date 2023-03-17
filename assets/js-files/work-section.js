@@ -3,7 +3,8 @@ import {
     TimelineMax,
     TweenMax,
     Elastic,
-    Power1
+    Power1,
+    Bounce
 } from '../node_modules/gsap/index.js'
 import {
     ScrollTrigger
@@ -78,20 +79,20 @@ let githubSvgTo = function (githubTarget) {
         tl.to(github, {
             morphSVG: {
                 shape: githubTarget,
-                type: 'rotational',
+                type: 'linear',
                 map: 'complexity',
             },
-            duration: 3,
-            ease: Elastic.easeOut,
+            duration: 1,
+            ease: Bounce.easeOut,
         })
         tl.to(githubBg, {
             morphSVG: {
                 shape: githubTargetBg,
                 type: 'linear',
-                map: 'complexity',
+                map: 'linear',
             },
-            duration: 3,
-            ease: Elastic.easeOut,
+            duration: 1,
+            ease: Bounce.easeOut,
         }, '<')
     }
     currentGithubShape = githubTarget

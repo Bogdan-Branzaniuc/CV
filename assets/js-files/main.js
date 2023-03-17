@@ -1,5 +1,6 @@
 import {
-    TimelineMax
+    TimelineMax,
+    gsap
 } from '../node_modules/gsap/index.js'
 import {
     navSystem,
@@ -20,6 +21,7 @@ import {
 }
 from './work-section.js'
 
+console.log(gsap.version)
 
 const pageColors = {
     /**

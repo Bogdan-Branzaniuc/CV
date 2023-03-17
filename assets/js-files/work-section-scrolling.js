@@ -1,9 +1,8 @@
 import {
     gsap,
     TimelineMax,
-    TweenMax,
     Elastic,
-    Power1
+    Bounce,
 } from '../node_modules/gsap/index.js'
 import {
     ScrollTrigger
@@ -31,7 +30,6 @@ let dashboardToFixed = function () {
         transformOrigin: "530px 530px",
         rotate: 500,
     })
-    // this ScrollTrigger will use the window/<body> by default, calling onRefresh when the page resizes, and onUpdate whenever any scroll happens. 
     ScrollTrigger.create({
         trigger: dashboard,
         start: 'top 24%',
@@ -40,7 +38,7 @@ let dashboardToFixed = function () {
         endTrigger: section,
         end: 'bottom 90%',
         scrub: 2,
-        ease: Elastic.easeOut
+        ease: Bounce.easeOut
     })
 
 
@@ -48,8 +46,9 @@ let dashboardToFixed = function () {
 ScrollTrigger.refresh()
 
 const draggableTrigger = function () {
+
     let handler = document.querySelector("#handler"),
-        barLength, maxScroll, triggerD, draggable, offsetTriggerScroll
+        barLength, maxScroll, triggerD, draggable, offsetTriggerScroll, scrollTo
     let bar = document.querySelector(".bar")
     barLength = document.querySelector(".bar").offsetWidth - handler.offsetWidth;
 
@@ -58,6 +57,7 @@ const draggableTrigger = function () {
         start: 'top 0%',
         end: 'bottom 100%',
         onRefresh: onResize,
+        scrub: 2,
         onUpdate: updateHandler,
     })
 
@@ -65,22 +65,16 @@ const draggableTrigger = function () {
         type: "x",
         bounds: ".bar",
         edgeResistance: 0.9,
+        delay: 4,
         onDrag: function () {
-            let normalizer
-            normalizer = ScrollTrigger.normalizeScroll({})
-            triggerD.scroll((this.x * maxScroll / barLength) + section.offset().top); // when dragging, scroll the page to the corresponding ratio
-            normalizer.kill()
-        }
-    })[0];
+            triggerD.disable()
+            console.log('dragged')
+            scrollTo = (this.x * maxScroll / barLength) + section.offset().top
+            gsap.quickTo(triggerD.scroll(scrollTo))
+            triggerD.enable()
+        },
 
-    function onResize() {
-        if (triggerD) {
-            // record the maximum scroll value for the page
-            maxScroll = section.innerHeight() - screen.height
-            barLength = document.querySelector(".bar").offsetWidth - handler.offsetWidth;
-            updateHandler();
-        }
-    }
+    })[0];
 
     function updateHandler() {
         // move the handler to the corresponding ratio according to the page's scroll position.
@@ -97,7 +91,16 @@ const draggableTrigger = function () {
             });
         }
     }
-    updateHandler()
+
+
+    function onResize() {
+        if (triggerD) {
+            // record the maximum scroll value for the page
+            maxScroll = section.innerHeight() - screen.height
+            barLength = document.querySelector(".bar").offsetWidth - handler.offsetWidth;
+            updateHandler();
+        }
+    }
 }
 export {
     dashboardToFixed,

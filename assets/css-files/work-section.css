@@ -136,7 +136,18 @@
     position: absolute;
     left: 50px;
 }
-
+.work-tab .content-col{
+    display:
+}
 .info-wrapper {
     position: relative;
+}
+.work-svgs-col{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.work-svg{
+    width:60%;
+    overflow:visible;
 }
