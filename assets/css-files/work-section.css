@@ -95,25 +95,19 @@
     position: relative;
     background: #f7f8f8;
     height: 100%;
+    width: 100%;
     padding: 20px 0;
-    right: 0;
 }
 
-.bar::after {
-    content: "";
-    transform: translateY(-50%);
-    background: #ddd;
-    height: 5px;
-}
+
 
 #handler {
     width: 20px;
     height: 20px;
     position: relative;
-    left: 0;
     background: red;
     border-radius: 50%;
-    position: relative;
+    left: 0;
     z-index: 1;
 }
 
@@ -136,18 +130,22 @@
     position: absolute;
     left: 50px;
 }
-.work-tab .content-col{
+
+.work-tab .content-col {
     display:
 }
+
 .info-wrapper {
     position: relative;
 }
-.work-svgs-col{
-    display:flex;
+
+.work-svgs-col {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-.work-svg{
-    width:60%;
-    overflow:visible;
+
+.work-svg {
+    width: 60%;
+    overflow: visible;
 }

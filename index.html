@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css-files/style.css">
     <link rel="stylesheet" href="assets/css-files/navigation.css">
     <link rel="stylesheet" href="assets/css-files/intro-section.css">
     <link rel="stylesheet" href="assets/css-files/work-section.css">
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
     <title>My CV</title>
 </head>
 
@@ -43,8 +47,10 @@
                         <path class="lower-mobile-svg-arrow" d="M7.5 40L13.9952 53.5H1.00481L7.5 40Z" />
                     </svg>
                     <li class="intro-link-li">
-                        <a class="intro-section-color nav-text-link" href="#intro"><i class="fa-solid fa-house"></i></a>
-                        <a class="intro-section-color nav-icon-link" href="#intro"><i class="fa-solid fa-house"></i></a>
+                        <a class="intro-section-color nav-text-link" data-mdb-smooth-scroll="smooth-scroll"
+                            href="#intro"><i class="fa-solid fa-house"></i></a>
+                        <a class="intro-section-color nav-icon-link" data-mdb-smooth-scroll="smooth-scroll"
+                            href="#intro"><i class="fa-solid fa-house"></i></a>
                     </li>
                     <li class="work-link-li">
                         <a class="work-section-color nav-text-link" href="#work">my work</a>
@@ -52,7 +58,7 @@
                                 class="fa-solid fa-briefcase"></i></a></li>
                     </li>
                     <li class="principles-link-li">
-                        <a class="principles-section-color nav-text-link" href="#principles">principles</a>
+                        <a class="principles-section-color nav-text-link " href="#principles">principles</a>
                         <a class="principles-section-color nav-icon-link" href="#principles"><i
                                 class="fa-solid fa-scale-balanced"></i></a></li>
                     </li>
@@ -156,8 +162,8 @@
                 <div class="col-1 col-lg-2"></div> <!-- section - spacer -->
             </div>
             <div class="row g-0">
-                <div class="col-3"></div>
-                <div class="col-7 scroll-dragger-row">
+                <div class="col-2"></div>
+                <div class="col-8 scroll-dragger-row">
                     <div class="bar">
                         <div id="handler"></div>
                     </div>

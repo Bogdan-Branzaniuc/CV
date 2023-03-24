@@ -20,6 +20,14 @@ gsap.registerPlugin(Draggable)
 
 const dashboard = $('.work-dashboard')
 const section = $('.work-section')
+let mobile = window.innerWidth > 800 ? false : true
+window.addEventListener('resize', (e) => {
+    console.log(window.innerWidth)
+    mobile = window.innerWidth > 800 ? false : true
+})
+
+
+let sectionPin = mobile ? 'top 10%' : 'top 30%'
 
 let dashboardToFixed = function () {
     /* Pinns the dashboard when scrolling 
@@ -30,16 +38,18 @@ let dashboardToFixed = function () {
         transformOrigin: "530px 530px",
         rotate: 500,
     })
+
     ScrollTrigger.create({
-        trigger: dashboard,
-        start: 'top 24%',
+        trigger: section,
+        start: sectionPin,
+        end: 'bottom 100%',
         animation: stAnimation,
         pin: dashboard,
-        endTrigger: section,
-        end: 'bottom 90%',
         scrub: 2,
         ease: Bounce.easeOut
     })
+
+
 
 
 }
@@ -48,50 +58,74 @@ ScrollTrigger.refresh()
 const draggableTrigger = function () {
 
     let handler = document.querySelector("#handler"),
-        barLength, maxScroll, triggerD, draggable, offsetTriggerScroll, scrollTo
+        barLength, maxScroll, triggerD, draggable, offsetTriggerScroll, offsetBarLeft
     let bar = document.querySelector(".bar")
-    barLength = document.querySelector(".bar").offsetWidth - handler.offsetWidth;
+
+    offsetBarLeft = bar.getBoundingClientRect().x / 4
+
+    let dashboardOffsetTop = section.offset().top + section.css('padding')
+    dashboardOffsetTop = parseInt(dashboardOffsetTop).toFixed(2)
+
+    barLength = bar.offsetWidth;
 
     triggerD = ScrollTrigger.create({
         trigger: section,
-        start: 'top 0%',
+        start: sectionPin,
         end: 'bottom 100%',
         onRefresh: onResize,
-        scrub: 2,
-        onUpdate: updateHandler,
+        onUpdate: ({
+            progress,
+            direction,
+            isActive,
+        }, ) => {
+            isActive ? draggable.enable() : draggable.disable()
+            updateHandler()
+        },
+        onLeave: () => {
+            gsap.set(handler, {
+                x: barLength + offsetBarLeft
+            });
+            draggable.disable()
+        },
+        onLeaveback: () => {
+            gsap.set(handler, {
+                x: offsetBarLeft,
+            });
+            draggable.disable()
+        }
     })
 
     draggable = Draggable.create(handler, {
         type: "x",
         bounds: ".bar",
         edgeResistance: 0.9,
-        delay: 4,
         onDrag: function () {
+            ScrollTrigger.normalizeScroll(true)
             triggerD.disable()
-            console.log('dragged')
-            scrollTo = (this.x * maxScroll / barLength) + section.offset().top
-            gsap.quickTo(triggerD.scroll(scrollTo))
+            let scrollTo = ((this.x - offsetBarLeft) * maxScroll / barLength) + section.offset().top
+            triggerD.scroll(scrollTo)
             triggerD.enable()
+            ScrollTrigger.normalizeScroll(false)
+            redoLinkSmothScroll()
         },
-
     })[0];
+    draggable.disable()
 
     function updateHandler() {
         // move the handler to the corresponding ratio according to the page's scroll position.
         maxScroll = section.innerHeight() - screen.height
-        offsetTriggerScroll = triggerD.scroll() - section.offset().top
-        let handlerRect = handler.getBoundingClientRect()
-        if (handlerRect.x > barLength + bar.getBoundingClientRect().x) {
-            gsap.set(handler, {
-                x: barLength
-            });
-        } else if (triggerD.scroll() > section.offset().top) {
-            gsap.set(handler, {
-                x: barLength * offsetTriggerScroll / maxScroll
-            });
+        if (triggerD) {
+            let handlerX = handler.getBoundingClientRect.x
+            if (handlerX > bar.getBoundingClientRect().x < bar.getBoundingClientRect().right) {
+                console.log('move', handler.offsetWidth)
+                offsetTriggerScroll = triggerD.scroll() - section.offset().top
+                gsap.set(handler, {
+                    x: barLength * offsetTriggerScroll / maxScroll + offsetBarLeft
+                });
+            }
         }
-    }
 
+    }
 
     function onResize() {
         if (triggerD) {
@@ -100,6 +134,18 @@ const draggableTrigger = function () {
             barLength = document.querySelector(".bar").offsetWidth - handler.offsetWidth;
             updateHandler();
         }
+    }
+
+    function redoLinkSmothScroll() {
+        $('a[href^="#"]').on('click', function (event) {
+            event.preventDefault();
+            var target = $(this.getAttribute('href'));
+            if (target.length) {
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top
+                }, 900);
+            }
+        });
     }
 }
 export {
