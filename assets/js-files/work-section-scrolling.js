@@ -1,7 +1,6 @@
 import {
     gsap,
     TimelineMax,
-    Elastic,
     Bounce,
 } from '../node_modules/gsap/index.js'
 import {
@@ -22,7 +21,6 @@ const dashboard = $('.work-dashboard')
 const section = $('.work-section')
 let mobile = window.innerWidth > 800 ? false : true
 window.addEventListener('resize', (e) => {
-    console.log(window.innerWidth)
     mobile = window.innerWidth > 800 ? false : true
 })
 
@@ -117,7 +115,6 @@ const draggableTrigger = function () {
         if (triggerD) {
             let handlerX = handler.getBoundingClientRect.x
             if (handlerX > bar.getBoundingClientRect().x < bar.getBoundingClientRect().right) {
-                console.log('move', handler.offsetWidth)
                 offsetTriggerScroll = triggerD.scroll() - section.offset().top
                 gsap.set(handler, {
                     x: barLength * offsetTriggerScroll / maxScroll + offsetBarLeft
