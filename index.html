@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css-files/navigation.css">
     <link rel="stylesheet" href="assets/css-files/intro-section.css">
     <link rel="stylesheet" href="assets/css-files/work-section.css">
+    <link rel="stylesheet" href="assets/css-files/principles-section.css">
 
     <title>My CV</title>
 </head>
@@ -281,13 +282,16 @@
                                 <p>technologies1</p>
                             </div>
                         </div>
-                        <div class="row g-0 justify-content-end">
-                            <div class="col-6 col-sm-4 btn">documentation</div>
-                            <div class="col-6 col-sm-4 btn">live-project</div>
+                        <div class="row g-0">
+                            <div class="col-0 col-sm-4"></div>
+                            <div class="col-6 col-sm-4 docs-live-buttons">
+                                <a href="#">docs</a>
+                            </div>
+                            <div class="col-6 col-sm-4 docs-live-buttons">
+                                <a href="#">live</a>
+                            </div>
                         </div>
                     </div>
-
-
                 </div>
                 <!-- ###################### SECTION CONTENT END:-->
                 <div class="col-1 col-lg-2"></div> <!-- section - spacer -->
@@ -299,22 +303,38 @@
     <!-- Principles -->
     <section class="container-fluid section principles-section">
         <div id="principles" class="anchor-scroll-tag"></div>
-        <h1>Principles</h1>
         <div class="row g-0">
             <div class="col-1 col-lg-2"></div> <!-- section - spacer -->
-            <div class="col-10 col-lg-8 content-col">
-                <div class="buttons">
-                    <button class="btn-primary principles-buttons scope-button">scope</button>
-                    <button class="btn-primary principles-buttons inertia-button">inertia</button>
-                    <button class="btn-primary principles-buttons mentors-button">mentors</button>
-                    <button class="btn-primary principles-buttons resources-button">resources</button>
-                    <button class="btn-primary principles-buttons connection-button">connection</button>
-                </div>
+            <div class="col-10 col-lg-7 content-col">
+                <h1>My Principles</h1>
                 <div class="principles-svg-wrapper principles-svgs">
                     <script src="./assets/media/svg/principles-titles-svg.js" type="module"></script>
                 </div>
+                <div class="buttons-area-container">
+                    <div class="draggable-remote"></div>
+                    <div class="row g-0">
+                        <div class=" col-12 principles-buttons-wrapper">
+                            <button class="btn-primary principles-buttons principles-button">1</button>
+                        </div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-12 principles-buttons-wrapper">
+                            <button class="btn-primary principles-buttons scope-button">1</button>
+                            <button class="btn-primary principles-buttons inertia-button">2</button>
+                            <button class="btn-primary principles-buttons mentors-button">3</button>
+                        </div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-12 principles-buttons-wrapper">
+                            <button class="btn-primary principles-buttons resources-button">4</button>
+                            <button class="btn-primary principles-buttons connection-button">5</button>
+                            <button class="btn-primary principles-buttons connection-button">6</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-1 col-lg-2"></div> <!-- section - spacer -->
+        </div>
+        <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
         </div>
     </section>
     <!-- About Me -->

@@ -57,7 +57,6 @@ master.add(loadNavBar(navSelectors))
 master.add(navAtagHover(navSelectors, pageColors), '<')
 selectorsAnimations(navSelectors, master)
 master.add(changeNavColors(navSelectors, pageColors), '<')
-
 hoverDownloadPDF(introSelectors.downloadPDFSvg, introSelectors.downloadPDFSvgPaths)
 
 workMain()

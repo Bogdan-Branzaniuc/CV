@@ -4,6 +4,7 @@ import {
     TweenMax,
     Elastic,
     Power1,
+    Power2,
     Bounce
 } from '../node_modules/gsap/index.js'
 import {
@@ -83,7 +84,7 @@ let githubSvgTo = function (githubTarget) {
                 map: 'complexity',
             },
             duration: 1,
-            ease: Bounce.easeOut,
+            ease: Power2.easeOut,
         })
         tl.to(githubBg, {
             morphSVG: {
@@ -92,7 +93,7 @@ let githubSvgTo = function (githubTarget) {
                 map: 'linear',
             },
             duration: 1,
-            ease: Bounce.easeOut,
+            ease: Power2.easeIn,
         }, '<')
     }
     currentGithubShape = githubTarget
@@ -119,10 +120,10 @@ const updateInnerTabElementSvg = function () {
                     type: 'rotational',
                     map: 'complexity',
                 },
-                duration: 1.5,
+                duration: 1,
                 fill: currentSvgFill,
                 stroke: currentSvgStroke,
-                ease: Elastic.easeOut.config(1.1, 0.4),
+                ease: Power2.easeIn,
             })
         }
         maintl.add(tl)
@@ -173,12 +174,6 @@ let mainButtonsHandler = function (e) {
     ScrollTrigger.refresh()
 }
 
-//create drag
-
-
-
-
-
 let main = function () {
     mainButtonsHandlerProjects() //default projects tab
     for (let btn of [studiesBtn, projectsBtn, algoBtn]) {
@@ -209,8 +204,6 @@ const createTabsScrollTriggers = function (tabInfo) {
         })
 
         let scrollTriggerId = 'scrollTrigger-' + tabInfo.attr('class').split(' ')[0] + count
-        //console.log(scrollTriggerId)
-
         let pinBreakPoint = $(`.pin-b-${count}`)
         let nextBreakPoint = $(`.pin-b-${count+1}`)
         let enter = new TimelineMax({
