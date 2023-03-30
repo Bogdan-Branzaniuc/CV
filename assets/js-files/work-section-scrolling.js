@@ -12,10 +12,14 @@ import {
 import {
     Draggable
 } from '../node_modules/gsap/Draggable.js'
+import {
+    InertiaPlugin
+} from '../node_modules/gsap/InertiaPlugin.js'
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(MorphSVGPlugin)
 gsap.registerPlugin(Draggable)
+gsap.registerPlugin(InertiaPlugin)
 
 const dashboard = $('.work-dashboard')
 const section = $('.work-section')
@@ -93,19 +97,22 @@ const draggableTrigger = function () {
         }
     })
 
+    function ThrowDrag() {
+        ScrollTrigger.normalizeScroll(true)
+        triggerD.disable()
+        let scrollTo = ((this.x - offsetBarLeft) * maxScroll / barLength) + section.offset().top
+        triggerD.scroll(scrollTo)
+        triggerD.enable()
+        ScrollTrigger.normalizeScroll(false)
+        redoLinkSmothScroll()
+    }
     draggable = Draggable.create(handler, {
         type: "x",
         bounds: ".bar",
         edgeResistance: 0.9,
-        onDrag: function () {
-            ScrollTrigger.normalizeScroll(true)
-            triggerD.disable()
-            let scrollTo = ((this.x - offsetBarLeft) * maxScroll / barLength) + section.offset().top
-            triggerD.scroll(scrollTo)
-            triggerD.enable()
-            ScrollTrigger.normalizeScroll(false)
-            redoLinkSmothScroll()
-        },
+        inertia: true,
+        onDrag: ThrowDrag,
+        onThrowUpdate: ThrowDrag
     })[0];
     draggable.disable()
 
