@@ -76,8 +76,6 @@ const draggableTrigger = function () {
         end: 'bottom 100%',
         onRefresh: onResize,
         onUpdate: ({
-            progress,
-            direction,
             isActive,
         }, ) => {
             isActive ? draggable.enable() : draggable.disable()

@@ -30,7 +30,7 @@ const pageColors = {
     '.intro-section-color': ['#478B9A', '#479A77'],
     '.work-section-color': ['#BDACD3', '#DC91C2'],
     '.principles-section-color': ['#F11D00', '#F11D10', '#F1002B'],
-    '.about-me-section-color': ['#527CA3', '#5264A3'],
+    '.about-me-section-color': ['#98a5d4', '#c9daeb'],
     '.hobbies-section-color': ['#E49A2B', '#E4792B'],
     '.contact-section-color': ['#6D9A77', '#7E9A6D'],
 }

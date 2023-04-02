@@ -250,9 +250,3 @@ const createTabsScrollTriggers = function (tabInfo) {
 export {
     main
 }
-//requirements: 
-//3 states of github svg
-//1 svg for each project
-//1 svg for each study
-//1 svg for each algorithm
-// slider + slider-button

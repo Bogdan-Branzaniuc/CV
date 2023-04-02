@@ -5,6 +5,7 @@ import {
     Bounce,
     TimelineLite,
     Power2,
+    Power4,
 } from '../node_modules/gsap/index.js'
 
 import {
@@ -83,6 +84,7 @@ window.addEventListener('resize', () => {
     createCoords()
     scrollTriggerPrinciples.refresh()
 })
+
 let scrollTriggerPrinciples = ScrollTrigger.create({
     trigger: '.buttons-area-container',
     start: "top 65%",
@@ -183,18 +185,18 @@ function changePrinciple(newSvgId) {
                 map: 'compexity',
                 origin: '30% 0%'
             },
-            duration: 2,
-            ease: Elastic.easeInOut,
+            duration: 1,
+            ease: Bounce.easeOut,
         })
-        tl.to(mainSvg, {
-            morphSVG: {
-                shape: newSvgId,
-                type: 'linear',
-                map: 'compexity',
-                origin: '50% 50%'
-            },
-            duration: 0.6,
-            ease: Power2.easeOut,
-        }, )
+        // tl.to(mainSvg, {
+        //     morphSVG: {
+        //         shape: newSvgId,
+        //         type: 'linear',
+        //         map: 'compexity',
+        //         origin: '50% 50%'
+        //     },
+        //     duration: 0.6,
+        //     ease: Power2.easeOut,
+        // }, )
     }
 }
