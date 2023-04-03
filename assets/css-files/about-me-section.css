@@ -1,0 +1,29 @@
+.about-me-section {
+    color: #c9daeb;
+    font-size: 130%;
+    padding-top: 30vh;
+}
+
+.about-me-section h1,
+.about-me-section h2,
+.about-me-section h3,
+.about-me-section h4 {
+    color: #98a5d4;
+}
+
+.about-me-section-inner-container {
+    /* border: 1px solid black */
+}
+
+.about-me-content {
+    padding: 5px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .about-me-content {
+        padding: 40px;
+    }
+}
+
+
+@media only screen and (max-width: 800px) {}

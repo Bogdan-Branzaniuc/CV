@@ -1,0 +1,31 @@
+.hobbies-section {
+    color: #E49A2B;
+    font-size: 130%;
+    height: 100vh;
+    padding-top: 30vh;
+}
+
+.hobbies-section h1,
+.hobbies-section h2,
+.hobbies-section h3,
+.hobbies-section h4 {
+    color: #E4792B;
+}
+
+.hobbies-section-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rotational-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 50%;
+}
+
+.hobbie-title {}

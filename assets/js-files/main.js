@@ -13,6 +13,9 @@ import {
     hoverDownloadPDF,
 } from './intro-section-methods.js'
 import {
+    loadAboutMe
+} from './about-me.js'
+import {
     mapTest,
     createSinglePath
 } from './development-helpers.js'
@@ -20,8 +23,16 @@ import {
     main as workMain
 }
 from './work-section.js'
-
-console.log(gsap.version)
+import {
+    hobbiesMain
+} from './hobbies-section.js'
+import {
+    email
+} from './email-js.js'
+import {
+    contactForm,
+    prepareFormSvgs,
+} from './contact-form.js'
 
 const pageColors = {
     /**
@@ -58,9 +69,28 @@ master.add(navAtagHover(navSelectors, pageColors), '<')
 selectorsAnimations(navSelectors, master)
 master.add(changeNavColors(navSelectors, pageColors), '<')
 hoverDownloadPDF(introSelectors.downloadPDFSvg, introSelectors.downloadPDFSvgPaths)
-
+loadAboutMe()
+hobbiesMain()
 workMain()
+contactForm()
+prepareFormSvgs()
+email()
 
+
+fetch('https://8000-bogdanbranzaniuc-cv-ip6061if7q9.ws-eu93.gitpod.io/')
+    .then(response => {
+        if (!response.ok) {
+            // Handle the error here
+            // console.log('Error: ', response.status);
+            window.location.href = '/404.html'; // Redirect to a 404 page
+        } else {
+            // Handle the successful response here
+            console.log('Success: ', response.status);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
 // HELPERS FOR SVG SINGLE PATH CREATION
 //mapTest()

@@ -1,0 +1,61 @@
+.contact-section {
+    height: 100vh;
+    padding-top: 30vh;
+    color: #6D9A77;
+}
+
+.contact-section-inner-container {
+    position: relative;
+}
+
+.magenta-bar {
+    right: -20px;
+    top: -30px;
+    width: 70%;
+    height: 100px;
+    background-color: #FF2156;
+}
+
+/* #6D9A77; */
+.form-group input,
+.form-group textarea {
+    background-color: #011415;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    background-color: #011415;
+    ;
+}
+
+.contact-section .btn-primary {
+    position: relative;
+    margin-top: 50px;
+    background-color: #011415;
+    color: white;
+    border-color: #6D9A77;
+}
+
+.contact-section .btn-primary:focus {
+    background-color: white;
+    color: rgb(255, 255, 255);
+    border-color: white
+}
+
+.form-group label {
+    z-index: 1500;
+}
+
+.form-group {
+    position: relative;
+    z-index: 1500;
+}
+
+.form-group-svg {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #6D9A77;
+    fill: #6D9A77;
+}

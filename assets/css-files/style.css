@@ -30,7 +30,7 @@ body {
 .section {
     position: relative;
     min-height: 60vh;
-    padding: 50px
+    padding: 50px;
 }
 
 .section h1 {

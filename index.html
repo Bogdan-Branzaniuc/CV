@@ -20,7 +20,9 @@
     <link rel="stylesheet" href="assets/css-files/intro-section.css">
     <link rel="stylesheet" href="assets/css-files/work-section.css">
     <link rel="stylesheet" href="assets/css-files/principles-section.css">
-    <link rel="stylesheet" href="assets/css-files/about-me.css">
+    <link rel="stylesheet" href="assets/css-files/about-me-section.css">
+    <link rel="stylesheet" href="assets/css-files/hobbies-section.css">
+    <link rel="stylesheet" href="assets/css-files/contact-section.css">
 
     <title>My CV</title>
 </head>
@@ -354,8 +356,8 @@
             <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
             <div class="col-10 col-lg-6 about-me-section-inner-container">
                 <div class="row g-0">
-                    <div class="col-6">
-                        <h1> about-me</h1>
+                    <h1 class="about-me-title">ABOUT ME</h1>
+                    <div class="col-12 col-xxl-6 about-me-content">
                         <h3>Who am I ?</h3>
                         <p> I am someone who wants to start his career in Software Engineering as best as one could,
                             being all
@@ -364,42 +366,37 @@
                             studying
                             reasons I moved to Dublin on 13.th of August 2021. </p>
                     </div>
-                    <div class="col-6"></div>
+                    <div class="col-0 col-xxl-6"></div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-6"></div>
-                    <div class="col-6">
+                    <div class="col-0 col-xxl-6"></div>
+                    <div class="col-12 col-xxl-6 about-me-content">
                         <h3>Why Software Engineering? </h3>
                         <p>
                             My first encounter with understanding software felt like
-                            trying a door in the dark and suddenly hearing the noise of the key sliding
+                            struggling to open a door in the dark and suddenly hearing the noise of the key sliding
                             perfectly into the lock.
                         </p>
                         <p>
-                            I instantly felt in love with the potential of abstraction, and
-                            I realised I could be part of something that can solve 1 billion people's problem
+                            I instantly felt in love with the power of abstraction, and
+                            I realised I could be part of something that can solve the problems of a billion people
                             while developing myself in the proccess.
                         </p>
                     </div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-6">
+                    <div class="col-12 col-xxl-6 about-me-content">
                         <h3>My current goals</h3>
                         <p>I. to be all the time surrounded by smarter people than me</p>
-                        <p>II. to build working solutions to the most difficult problems among the best minds.</p>
-                        <p>III. to enjoy myself in the proccess and create high-quality relations</p>
+                        <p>II. to build working solutions to the most difficult problems among the brightest minds.</p>
+                        <p>III. to enjoy myself in the proccess and create high-quality interractions</p>
                     </div>
-                    <div class="col-6"></div>
+                    <div class="col-0 col-xxl-6"></div>
                 </div>
                 <div class="row g-0">
                     <div class="col-6"></div>
                     <div class="col-6"></div>
                 </div>
-
-
-
-
-
             </div>
             <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
 
@@ -409,14 +406,79 @@
     <!-- Hobbies -->
     <section class="container-fluid section hobbies-section">
         <div id="hobbies" class="anchor-scroll-tag"></div>
+        <div class="row g-0">
+            <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
+            <div class="col-10 col-lg-6 hobbies-section-inner-container">
+                <h1 class='hobbies-section-heading'>HOBBIES</h1>
+                <p class='hobbies-section-heading'>Part of my hobbies are also oportunity costs, as I chose to develop
+                    different abilities at a faster
+                    pace</p>
+                <div class="rotational-wrapper">
+                    <h1 class="hobbie-title">Guitar</h1>
+                    <h1 class="hobbie-title">Running</h1>
+                    <h1 class="hobbie-title">Chess</h1>
+                    <h1 class="hobbie-title">Technology</h1>
+                    <h1 class="hobbie-title">Reading</h1>
+                </div>
+            </div>
         </div>
-        <h1>hobbies</h1>
+        <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
+
+
     </section>
     <!-- Contact -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("vZsFxCT6xy6xgwDYI");
+        })();
+    </script>
     <section class="container-fluid section contact-section">
         <div id="contact" class="anchor-scroll-tag"></div>
+        <div class="row g-0">
+            <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
+            <div class="col-10 col-lg-6 contact-section-inner-container">
+                <h1>Let's Get In touch!</h1>
+
+                <form id="contact-form">
+                    <div class="form-group">
+                        <svg class="form-group-svg"></svg>
+                        <label for="name" id="name-label">Name</label>
+                        <input type="text" name="from_name" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <svg class="form-group-svg"></svg>
+                        <label for="email" id="email-label">Email address</label>
+                        <input type="email" name="from_email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <svg class="form-group-svg"></svg>
+                        <label for="textarea" id="textarea-label">Send me a message</label>
+                        <textarea class="form-control" name="message" id="textarea" maxlength="1000" rows="10"
+                            required></textarea>
+                    </div>
+
+                    <svg class="form-group-svg">
+
+                    </svg>
+                    <div class="form-group">
+                        <button type="submit" id="submit-message" class="btn btn-primary">Send Message</button>
+                    </div>
+            </div>
+            </form>
+            <div>I'm a div inside the HTML</div>
+            <svg width="100%" height="300" style="border:1px red solid" xmlns="http://www.w3.org/2000/svg">
+                <path id='rectangle-test' d="M0,0 150,0 150,50 0,50" fill="yellow" />
+                <foreignobject width="100%" height="100%">
+                    <div style="border:1px green solid">I'm a div inside a SVG.</div>
+                </foreignobject>
+            </svg>
+            <div>Interesting! But you a Foreign Object.</div>
         </div>
-        <h1>contact</h1>
+        <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
+        </div>
+        </div>
     </section>
 
     <!-- Footer -->
