@@ -17,16 +17,6 @@
 }
 
 /* #6D9A77; */
-.form-group input,
-.form-group textarea {
-    background-color: #011415;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    background-color: #011415;
-    ;
-}
 
 .contact-section .btn-primary {
     position: relative;
@@ -51,11 +41,27 @@
     z-index: 1500;
 }
 
-.form-group-svg {
+.form-control {
+    border: 0px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white
+}
+
+.form-control:focus {
+    border: 0px;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.contact-form {
+    position: relative;
+}
+
+.contact-form-svg {
     position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    background-color: #6D9A77;
-    fill: #6D9A77;
+    top: 0;
+    left: -1px;
+    overflow: visible;
+    /* background-color: #6D9A77; */
 }

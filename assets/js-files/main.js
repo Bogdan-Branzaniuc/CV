@@ -31,7 +31,7 @@ import {
 } from './email-js.js'
 import {
     contactForm,
-    prepareFormSvgs,
+    drawFormSvgs,
 } from './contact-form.js'
 
 const pageColors = {
@@ -72,8 +72,9 @@ hoverDownloadPDF(introSelectors.downloadPDFSvg, introSelectors.downloadPDFSvgPat
 loadAboutMe()
 hobbiesMain()
 workMain()
+drawFormSvgs()
 contactForm()
-prepareFormSvgs()
+
 email()
 
 

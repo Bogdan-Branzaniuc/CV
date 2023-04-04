@@ -443,38 +443,27 @@
 
                 <form id="contact-form">
                     <div class="form-group">
-                        <svg class="form-group-svg"></svg>
                         <label for="name" id="name-label">Name</label>
                         <input type="text" name="from_name" class="form-control" id="name" required>
                     </div>
+
                     <div class="form-group">
-                        <svg class="form-group-svg"></svg>
                         <label for="email" id="email-label">Email address</label>
                         <input type="email" name="from_email" class="form-control" id="email" required>
                     </div>
+
                     <div class="form-group">
-                        <svg class="form-group-svg"></svg>
                         <label for="textarea" id="textarea-label">Send me a message</label>
                         <textarea class="form-control" name="message" id="textarea" maxlength="1000" rows="10"
                             required></textarea>
                     </div>
-
-                    <svg class="form-group-svg">
-
-                    </svg>
                     <div class="form-group">
                         <button type="submit" id="submit-message" class="btn btn-primary">Send Message</button>
                     </div>
+                </form>
             </div>
             </form>
-            <div>I'm a div inside the HTML</div>
-            <svg width="100%" height="300" style="border:1px red solid" xmlns="http://www.w3.org/2000/svg">
-                <path id='rectangle-test' d="M0,0 150,0 150,50 0,50" fill="yellow" />
-                <foreignobject width="100%" height="100%">
-                    <div style="border:1px green solid">I'm a div inside a SVG.</div>
-                </foreignobject>
-            </svg>
-            <div>Interesting! But you a Foreign Object.</div>
+
         </div>
         <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
         </div>
@@ -483,8 +472,10 @@
 
     <!-- Footer -->
     <section class="container"></section>
-
-    <!-- Bootstrap js -->
+    <!-- svg js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"
+        integrity="sha512-I+rKw3hArzZIHzrkdELbKqrXfkSvw/h0lW/GgB8FThaBVz2e5ZUlSW8kY8v3q6wq37eybIwyufkEZxe4qSlGcg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> <!-- Bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
     </script>
