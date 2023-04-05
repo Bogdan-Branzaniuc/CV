@@ -10,6 +10,7 @@ import {
     navAtagHover,
 } from './nav-methods.js'
 import {
+    loadIntroSection,
     hoverDownloadPDF,
 } from './intro-section-methods.js'
 import {
@@ -68,6 +69,7 @@ master.add(loadNavBar(navSelectors))
 master.add(navAtagHover(navSelectors, pageColors), '<')
 selectorsAnimations(navSelectors, master)
 master.add(changeNavColors(navSelectors, pageColors), '<')
+loadIntroSection() //to be done
 hoverDownloadPDF(introSelectors.downloadPDFSvg, introSelectors.downloadPDFSvgPaths)
 loadAboutMe()
 hobbiesMain()

@@ -19,7 +19,7 @@ function contactForm() {
     let formSvgRects = document.querySelector('.contact-form-svg').children
 
     window.addEventListener('click', (e) => {
-        let offsetTopSvgs = 12
+        let offsetTopSvgs = 9
         console.log('click')
         let i = 0
         for (let formField of formFields) {
@@ -90,6 +90,7 @@ function drawFormSvgs() {
     let formRect = form.getBoundingClientRect()
     let formWidth = formRect.width + 2
     let draw = SVG().size(formWidth, formRect.height).fill('none').addClass('contact-form-svg')
+    //draw.viewbox(0, 0, formWidth, formRect.height)
     draw.addTo(form)
 
     let formFields = document.querySelectorAll('.form-control')
@@ -102,6 +103,7 @@ function drawFormSvgs() {
             width: 1,
             color: 'white',
         }).radius(fieldBorderRadius)
+
         fieldSvg.move(0, formGroups[i].offsetTop + field.offsetTop)
         fieldSvg.addClass('field-svg')
 
@@ -120,20 +122,27 @@ function successfulMessage() {
         display: 'none',
         duration: 0.1,
     })
-    tl.to(MorphSVGPlugin.convertToPath('.field-svg'), {
-        morphSVG: {
-            shape: '#github-icon-nerd',
-            type: 'rotational',
-            map: 'compexity',
-            origin: '30% 0%'
-        },
-        duration: 5,
-        ease: Elastic.easeInOut,
-    })
+    let fieldSvgs = document.querySelectorAll('.field-svg')
+    let i = 0
+    for (let fieldSvg of fieldSvgs) {
+        tl.to(MorphSVGPlugin.convertToPath(fieldSvg), {
+            morphSVG: {
+                shape: '#test-svg' + `${i}`,
+                type: 'linear',
+                map: 'compexity',
+            },
+            scale: 0.4,
+            y: i * 100,
+            fill: '#6D9A77',
+            duration: 2.5,
+            ease: Elastic.easeInOut,
+        }, '<')
+        i++
+    }
+
 
 
 }
-
 
 export {
     contactForm,

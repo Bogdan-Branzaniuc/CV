@@ -5,7 +5,8 @@ import {
     Elastic,
     Power1,
     Power2,
-    Bounce
+    Bounce,
+    Power4
 } from '../node_modules/gsap/index.js'
 import {
     ScrollTrigger
@@ -50,21 +51,18 @@ let mainButtonsHandlerProjects = function () {
     projectsInfo.show()
     studiesInfo.hide()
     algosInfo.hide()
-    section.height('300vh')
     githubSvgTo('#github-icon-svg')
 }
 let mainButtonsHandlerStudies = function () {
     projectsInfo.hide()
     studiesInfo.show()
     algosInfo.hide()
-    section.height('300vh')
     githubSvgTo('#github-icon-nerd-svg')
 }
 let mainButtonsHandlerAlgos = function () {
     projectsInfo.hide()
     studiesInfo.hide()
     algosInfo.show()
-    section.height('450vh')
     githubSvgTo('#github-icon-mad-svg')
 }
 
@@ -120,15 +118,17 @@ const updateInnerTabElementSvg = function () {
                     type: 'rotational',
                     map: 'complexity',
                 },
-                duration: 1,
+                duration: 2,
                 fill: currentSvgFill,
                 stroke: currentSvgStroke,
-                ease: Power2.easeIn,
+                ease: Power4.easeOut,
             })
         }
         maintl.add(tl)
     }
     document.addEventListener('tabElementChanged', (e) => {
+        let redTapeLottie = document.querySelector('#red-tape-p-lottie')
+        redTapeLottie.play()
         let tabElementClass = e.detail.className.split(' ')[1]
         let elementCategory = tabElementClass[tabElementClass.length - 1].toLowerCase()
         currentTabAndSvg[elementCategory] = tabElementClass
@@ -240,8 +240,8 @@ const createTabsScrollTriggers = function (tabInfo) {
                 main.add(leave.reverse())
             },
             onLeaveBack: () => {
-                document.dispatchEvent(innerTabNewElement),
-                    main.add(enter.reverse())
+                document.dispatchEvent(innerTabNewElement)
+                main.add(enter.reverse())
             },
         })
         count++

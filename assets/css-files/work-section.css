@@ -2,6 +2,7 @@
     color: #BDACD3;
     position: relative;
     overflow: hidden;
+    height: 400vh;
 }
 
 .work-section a {
@@ -11,6 +12,9 @@
 
 .work-svg {
     display: none;
+    width: 100%;
+    overflow: visible;
+    position: relative;
 }
 
 .first-svg {
@@ -70,9 +74,7 @@
 .github-icon-tag {
     display: flex;
     justify-content: center;
-
     justify-content: left;
-
     width: 100%;
     max-height: 100%;
 }
@@ -103,6 +105,11 @@
     align-items: center;
 }
 
+.red-tape-p-lottie {
+    position: relative;
+    height: 150px;
+}
+
 /* ########### scroll interractive Slider ##########*/
 .scroll-dragger-row {
     height: 50px;
@@ -112,9 +119,11 @@
 
 .bar {
     position: relative;
-    height: 40%;
+    top: 10px;
+    height: 10px;
     width: 100%;
-    padding: 20px 0;
+    background-color: #BDACD3;
+    border-radius: 5px;
 }
 
 #handler {
@@ -124,7 +133,7 @@
     background: red;
     border-radius: 50%;
     left: 0;
-    top: 0;
+    top: -10px;
     z-index: 1;
 }
 
@@ -133,9 +142,7 @@
     min-height: 20vh;
 }
 
-.work-svg {
-    width: 100%;
-}
+
 
 .work-info-and-svgs-row {
     max-height: 30vh;
@@ -146,6 +153,10 @@
 .algos-info {
     position: absolute;
     left: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .info-wrapper {
@@ -159,15 +170,18 @@
     height: 300px;
 }
 
-.work-svg {
-    height: 100%;
-    overflow: visible;
-}
-
 
 @media only screen and (max-width: 800px) {
     .work-section {
         margin-top: 200px;
+    }
+
+    .work-section img {
+        width: 30px;
+    }
+
+    #red-tape-p-lottie {
+        width: 70%;
     }
 
     .work-svgs-col {
@@ -180,8 +194,22 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .projects-info {
+        left: 0;
+    }
+
+    .work-svg {
+        position: relative;
+        left: -20px;
+        width: 50%;
+    }
+
     .work-svgs-col {
         height: 200px;
+    }
+
+    .work-section img {
+        width: 20px;
     }
 
     .github-svg-wrapper {

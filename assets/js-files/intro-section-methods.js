@@ -1,4 +1,7 @@
 import {
+    Draggable
+} from '../node_modules/gsap/Draggable.js'
+import {
     gsap,
     TimelineMax,
     Elastic
@@ -10,6 +13,8 @@ import {
 } from "../node_modules/gsap/MorphSVGPlugin.js"
 
 gsap.registerPlugin(MorphSVGPlugin)
+gsap.registerPlugin(Draggable)
+
 const pdfSvgMouseover = function (svgPaths) {
     /**
      * creates the timeline for touchstart or mouseover events
@@ -75,7 +80,8 @@ const loadIntroSection = function (selectors) {
      **/
 }
 
+
 export {
     hoverDownloadPDF,
-    loadIntroSection
+    loadIntroSection,
 }

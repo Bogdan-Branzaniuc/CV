@@ -12,12 +12,10 @@ function email() {
             btn.value = 'Sending...';
             const serviceID = 'default_service';
             const templateID = 'template_ggj0q0g';
-
             emailjs.sendForm(serviceID, templateID, this)
                 .then(() => {
                     btn.value = 'Send Email';
                     successfulMessage()
-
                 }, (err) => {
                     btn.value = 'Send Email';
                     alert(JSON.stringify(err));
