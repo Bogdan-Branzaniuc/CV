@@ -78,9 +78,8 @@
     align-items: center;
 }
 
-.red-tape-p-lottie {
-    position: relative;
-    height: 150px;
+#red-tape-p-lottie {
+    width: 70%;
 }
 
 /* ########### scroll interractive Slider ##########*/

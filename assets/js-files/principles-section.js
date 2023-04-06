@@ -29,7 +29,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 let buttons = document.querySelectorAll('.principles-buttons')
 let mainSvg = '#principles-svg'
-let activeButton = 'scope-button'
+let activeButton = 'velocity-button'
 
 function resizeWindow(button) {
     let buttonY = button.offsetTop
@@ -188,15 +188,5 @@ function changePrinciple(newSvgId) {
             duration: 1,
             ease: Bounce.easeOut,
         })
-        // tl.to(mainSvg, {
-        //     morphSVG: {
-        //         shape: newSvgId,
-        //         type: 'linear',
-        //         map: 'compexity',
-        //         origin: '50% 50%'
-        //     },
-        //     duration: 0.6,
-        //     ease: Power2.easeOut,
-        // }, )
     }
 }
