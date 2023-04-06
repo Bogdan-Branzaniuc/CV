@@ -26,4 +26,21 @@
 }
 
 
-@media only screen and (max-width: 800px) {}
+@media only screen and (max-width: 800px) {
+
+    .about-me-section h1,
+    .about-me-section h2,
+    .about-me-section h3,
+    .about-me-section h4 {
+        font-size: 1.5em;
+    }
+
+    .about-me-section p {
+        font-size: 0.8em
+    }
+
+    .about-me-content {
+        padding: 0;
+        padding-top: 20px;
+    }
+}
