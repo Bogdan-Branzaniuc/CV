@@ -20,7 +20,6 @@ function contactForm() {
 
     window.addEventListener('click', (e) => {
         let offsetTopSvgs = 9
-        console.log('click')
         let i = 0
         for (let formField of formFields) {
             let label = '#' + formField.id + '-label'
@@ -63,7 +62,6 @@ function contactForm() {
                     duration: 0.5,
                     ease: Power1.easeOut,
                 }, '<')
-                console.log(e.target.id)
                 if (e.target.id == 'name') {
                     tl2.to(formSvgRects[1], {
                         y: offsetTopSvgs,
@@ -107,7 +105,6 @@ function drawFormSvgs() {
         fieldSvg.move(0, formGroups[i].offsetTop + field.offsetTop)
         fieldSvg.addClass('field-svg')
 
-        console.log(fieldSvg)
         i++
     }
 }

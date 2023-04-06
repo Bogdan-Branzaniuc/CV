@@ -28,7 +28,6 @@ gsap.registerPlugin(Draggable)
 
 ScrollTrigger.refresh()
 
-const section = $('.work-section')
 const studiesBtn = $('.work-studies-button')
 const projectsBtn = $('.work-projects-button')
 const algoBtn = $('.work-algo-button')
@@ -42,10 +41,12 @@ let currentTabAndSvg = {
 let currentGithubShape = '#github-icon'
 let workSvgMainPathId = '#nuclearFusionP'
 
+const section = $('.work-section')
 const projectsInfo = $('.projects-info')
 const studiesInfo = $('.studies-info')
 const algosInfo = $('.algos-info')
 
+let currentMainButton = 'work-projects-button'
 
 let mainButtonsHandlerProjects = function () {
     projectsInfo.show()
@@ -97,18 +98,26 @@ let githubSvgTo = function (githubTarget) {
     currentGithubShape = githubTarget
 }
 
+function hideAllTabs() {
+    $('.projects-info').css('display', 'none')
+    $('.studies-info').css('display', 'none')
+    $('.algos-info').css('display', 'none')
+}
+
 const updateInnerTabElementSvg = function () {
     /* Updates the svg of the current scrolled-to tabElement
      when changing tabs and scrolling through their elements*/
     let currentSvg = currentTabAndSvg[currentTabAndSvg.tab] //default projects svg
-
-    const tabSvgUpdate = (currentSvgSource) => {
+    let currentTab = document.querySelector('.nuclearFusionP')
+    const tabSvgUpdate = (currentSvgSource, currentTabElementClass) => {
         let maintl = new TimelineMax()
         let exSvgId = '#' + currentSvg
         currentSvg = currentSvgSource
         let currentSvgId = '#' + currentSvg
         let tl = new TimelineMax()
-
+        hideAllTabs()
+        currentTab = document.querySelector('.' + currentTabElementClass)
+        if (currentTab) currentTab.style.display = 'flex'
         let currentSvgFill = $('.' + currentSvg + '-fill').css('fill')
         let currentSvgStroke = $('.' + currentSvg + '-fill').css('stroke')
         if (currentSvgId != exSvgId) {
@@ -133,11 +142,11 @@ const updateInnerTabElementSvg = function () {
         let elementCategory = tabElementClass[tabElementClass.length - 1].toLowerCase()
         currentTabAndSvg[elementCategory] = tabElementClass
         if (currentTabAndSvg.tab == elementCategory) {
-            tabSvgUpdate(tabElementClass)
+            tabSvgUpdate(tabElementClass, tabElementClass)
         }
     })
     document.addEventListener('mainButtonPressed', (e) => {
-        tabSvgUpdate(e.detail[e.detail.tab])
+        tabSvgUpdate(e.detail[e.detail.tab], e.detail[e.detail.tab])
     })
 }
 
@@ -152,13 +161,14 @@ let mainButtonsHandler = function (e) {
         composed: false,
     })
     let btnClasses = e.target.className.split(' ')
-    if (btnClasses[btnClasses.length - 1] == 'work-projects-button') {
+    let btnClass = btnClasses[btnClasses.length - 1]
+    if (btnClass == 'work-projects-button') {
         mainButtonsHandlerProjects()
         currentTabAndSvg.tab = 'p'
-    } else if (btnClasses[btnClasses.length - 1] == 'work-studies-button') {
+    } else if (btnClass == 'work-studies-button') {
         mainButtonsHandlerStudies()
         currentTabAndSvg.tab = 's'
-    } else if (btnClasses[btnClasses.length - 1] == 'work-algo-button') {
+    } else if (btnClass == 'work-algo-button') {
         mainButtonsHandlerAlgos()
         currentTabAndSvg.tab = 'a'
     }
@@ -172,6 +182,38 @@ let mainButtonsHandler = function (e) {
     })
     document.dispatchEvent(mainButtonPressed)
     ScrollTrigger.refresh()
+    currentMainButton = btnClass
+
+    updateMainButtons(btnClass)
+}
+
+function updateMainButtons(buttonPressedClass) {
+    let buttons = document.querySelectorAll('.work-main-btn')
+    let timelinel1 = new TimelineMax()
+    for (let button of buttons) {
+        let btnClasses = button.classList
+        if (btnClasses[btnClasses.length - 1] == buttonPressedClass) {
+            timelinel1.to(button, {
+                width: '80%',
+                x: '10%',
+                height: '120%',
+                duration: 1.5,
+                fontSize: '110%',
+                color: 'white',
+                ease: Elastic.easeOut,
+            }, '<')
+        } else {
+            timelinel1.to(button, {
+                width: '100%',
+                x: 0,
+                height: '70%',
+                fontSize: '100%',
+                duration: 1.5,
+                color: '#BDACD3',
+                ease: Elastic.easeOut
+            }, '<')
+        }
+    }
 }
 
 let main = function () {
@@ -193,8 +235,10 @@ let main = function () {
 
 const createTabsScrollTriggers = function (tabInfo) {
     /*Creates a scrolltrigger for each of the three tabs, as they have multiple elements inside*/
-    let count = 1
-
+    let breakPointIncrement = section.height() / tabInfo.length + 1
+    let startPoint = 0
+    let endPoint = breakPointIncrement
+    // create breaking points for the number of elements in the info-tab
     for (let element of tabInfo) {
         const innerTabNewElement = new CustomEvent('tabElementChanged', {
             detail: element,
@@ -202,10 +246,6 @@ const createTabsScrollTriggers = function (tabInfo) {
             cancelable: true,
             composed: false,
         })
-
-        let scrollTriggerId = 'scrollTrigger-' + tabInfo.attr('class').split(' ')[0] + count
-        let pinBreakPoint = $(`.pin-b-${count}`)
-        let nextBreakPoint = $(`.pin-b-${count+1}`)
         let enter = new TimelineMax({
             paused: true
         })
@@ -222,11 +262,9 @@ const createTabsScrollTriggers = function (tabInfo) {
             opacity: 0,
         })
         ScrollTrigger.create({
-            trigger: pinBreakPoint,
-            id: scrollTriggerId,
-            start: 'top 50%',
-            endTrigger: nextBreakPoint,
-            end: 'top 50%',
+            trigger: section,
+            start: `${startPoint} 30%`,
+            end: `${endPoint} 30%`,
             onEnter: () => {
                 document.dispatchEvent(innerTabNewElement)
                 main.add(enter.play())
@@ -244,7 +282,8 @@ const createTabsScrollTriggers = function (tabInfo) {
                 main.add(enter.reverse())
             },
         })
-        count++
+        startPoint += breakPointIncrement
+        endPoint += breakPointIncrement
     }
 }
 export {

@@ -10,51 +10,24 @@
     color: inherit;
 }
 
+.work-section p {
+    font-size: 130%;
+    line-height: 120%;
+}
+
+.work-section img {
+    width: 50px;
+}
+
 .work-svg {
     display: none;
-    width: 100%;
+    width: 90%;
     overflow: visible;
     position: relative;
 }
 
 .first-svg {
     display: block;
-}
-
-
-.pin-tab-inner-breaking-point {
-    position: absolute;
-}
-
-/* ################  SCROLL ANCHORS ############### */
-.pin-b-1 {
-    top: 15vh;
-}
-
-.pin-b-2 {
-    top: 115vh;
-}
-
-.pin-b-3 {
-    top: 215vh;
-}
-
-.pin-b-4 {
-    top: 315vh;
-}
-
-.pin-b-5 {
-    top: 415vh;
-}
-
-
-/* ################ Section Height based on number of elements ############# */
-.tab-num-elements-3 {
-    height: 300vh
-}
-
-.tab-num-elements-5 {
-    height: 500vh
 }
 
 
@@ -112,14 +85,16 @@
 
 /* ########### scroll interractive Slider ##########*/
 .scroll-dragger-row {
-    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
+
     display: flex;
     justify-content: center;
 }
 
 .bar {
     position: relative;
-    top: 10px;
+    top: 20px;
     height: 10px;
     width: 100%;
     background-color: #BDACD3;
@@ -129,7 +104,7 @@
 #handler {
     width: 30px;
     height: 30px;
-    position: absolute;
+    position: relative;
     background: red;
     border-radius: 50%;
     left: 0;
@@ -139,35 +114,25 @@
 
 /* *************** Tabs Info ************** */
 .info-wrapper {
-    min-height: 20vh;
-}
-
-
-
-.work-info-and-svgs-row {
-    max-height: 30vh;
+    position: relative;
 }
 
 .projects-info,
 .studies-info,
 .algos-info {
-    position: absolute;
-    left: 50px;
-    display: flex;
-    align-items: center;
+    display: none;
+    position: relative;
+    top: 0;
+    align-items: left;
     flex-direction: column;
     justify-content: center;
 }
 
-.info-wrapper {
-    position: relative;
-}
-
 .work-svgs-col {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    height: 300px;
+    padding: 10px;
 }
 
 
@@ -180,33 +145,47 @@
         width: 30px;
     }
 
+    .work-section h1,
+    .work-section h2,
+    .work-section h3 {
+        font-size: 1.5em;
+    }
+
+    .work-section p {
+        font-size: 0.9em;
+    }
+
+    .work-section .btn-primary {
+        font-size: 0.9em;
+    }
+
     #red-tape-p-lottie {
         width: 70%;
     }
 
-    .work-svgs-col {
-        height: 150px;
-    }
-
-    .github-svg-wrapper {
-        height: 100px;
+    .info-buttons-wrapper {
+        display: flex;
+        flex-direction: row;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .projects-info {
+
+    .projects-info,
+    .studies-info,
+    .algos-info {
         left: 0;
     }
 
     .work-svg {
         position: relative;
-        left: -20px;
+        top: 0;
         width: 50%;
     }
 
-    .work-svgs-col {
+    /* .work-svgs-col {
         height: 200px;
-    }
+    } */
 
     .work-section img {
         width: 20px;

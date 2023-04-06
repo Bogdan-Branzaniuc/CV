@@ -29,7 +29,8 @@ window.addEventListener('resize', (e) => {
 })
 
 
-let sectionPin = mobile ? 'top 10%' : 'top 30%'
+let sectionPin = mobile ? 'top 7%' : 'top 30%'
+let sectionPinPercentage = mobile ? 0.93 : 0.7
 
 let dashboardToFixed = function () {
     /* Pinns the dashboard when scrolling 
@@ -51,19 +52,17 @@ let dashboardToFixed = function () {
         ease: Bounce.easeOut
     })
 
-
-
-
 }
 ScrollTrigger.refresh()
 
 const draggableTrigger = function () {
-
     let handler = document.querySelector("#handler"),
-        barLength, maxScroll, triggerD, draggable, offsetTriggerScroll, offsetBarLeft
+        barLength, maxScroll, triggerD, draggable, offsetBarLeft,
+        offsetBarRight
     let bar = document.querySelector(".bar")
-
-    offsetBarLeft = bar.getBoundingClientRect().x / 4
+    let barRect = bar.getBoundingClientRect()
+    offsetBarLeft = barRect.x - handler.offsetWidth
+    offsetBarRight = barRect.x //since bootstrap grid
 
     let dashboardOffsetTop = section.offset().top + section.css('padding')
     dashboardOffsetTop = parseInt(dashboardOffsetTop).toFixed(2)
@@ -75,56 +74,35 @@ const draggableTrigger = function () {
         start: sectionPin,
         end: 'bottom 100%',
         onRefresh: onResize,
-        onUpdate: ({
-            isActive,
-        }, ) => {
-            isActive ? draggable.enable() : draggable.disable()
+        onUpdate: () => {
             updateHandler()
         },
-        onLeave: () => {
-            gsap.set(handler, {
-                x: barLength + offsetBarLeft
-            });
-            draggable.disable()
-        },
-        onLeaveback: () => {
-            gsap.set(handler, {
-                x: offsetBarLeft,
-            });
-            draggable.disable()
-        }
     })
 
     function ThrowDrag() {
-        ScrollTrigger.normalizeScroll(true)
-        triggerD.disable()
-        let scrollTo = ((this.x - offsetBarLeft) * maxScroll / barLength) + section.offset().top
-        triggerD.scroll(scrollTo)
-        triggerD.enable()
+        let scrollProgress = (this.x / barLength)
+        triggerD.scroll(triggerD.start + scrollProgress * (triggerD.end - triggerD.start))
         ScrollTrigger.normalizeScroll(false)
-        redoLinkSmothScroll()
     }
     draggable = Draggable.create(handler, {
         type: "x",
         bounds: ".bar",
         edgeResistance: 0.9,
         inertia: true,
+        onDragStart: () => ScrollTrigger.normalizeScroll(true),
         onDrag: ThrowDrag,
-        onThrowUpdate: ThrowDrag
+        onThrowUpdate: ThrowDrag,
+        onThrowComplete: () => ScrollTrigger.normalizeScroll(false),
     })[0];
-    draggable.disable()
 
     function updateHandler() {
         // move the handler to the corresponding ratio according to the page's scroll position.
-        maxScroll = section.innerHeight() - screen.height
+        maxScroll = section.innerHeight() - screen.height * sectionPinPercentage
         if (triggerD) {
-            let handlerX = handler.getBoundingClientRect.x
-            if (handlerX > bar.getBoundingClientRect().x < bar.getBoundingClientRect().right) {
-                offsetTriggerScroll = triggerD.scroll() - section.offset().top
-                gsap.set(handler, {
-                    x: barLength * offsetTriggerScroll / maxScroll + offsetBarLeft
-                });
-            }
+            let scrollProgress = triggerD.progress.toFixed(2)
+            gsap.set(handler, {
+                x: scrollProgress * barLength
+            });
         }
 
     }
@@ -149,6 +127,7 @@ const draggableTrigger = function () {
             }
         });
     }
+    redoLinkSmothScroll()
 }
 export {
     dashboardToFixed,
