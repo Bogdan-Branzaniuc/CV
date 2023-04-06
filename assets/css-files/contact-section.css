@@ -44,14 +44,42 @@
 .form-control {
     border: 0px;
     border-radius: 5px;
-    background-color: transparent;
+    background-color: transparent !important;
     color: white
 }
 
 .form-control:focus {
     border: 0px;
     box-shadow: none;
-    background-color: transparent;
+    background-color: transparent !important;
+    color: white
+}
+
+input {
+    background-color: transparent !important;
+}
+
+input:not(:-webkit-autofill),
+input:not(:-webkit-autofill):hover,
+input:not(:-webkit-autofill):focus {
+    background-color: transparent !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:after {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    box-shadow: none !important;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white !important;
+    background-color: transparent !important;
+}
+
+input:-moz-autofill {
+    color: white !important;
+    background-color: transparent !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .contact-form {
@@ -66,4 +94,8 @@
     height: 100%;
     overflow: visible;
     /* background-color: #6D9A77; */
+}
+
+.contact-details {
+    margin-top: 50px;
 }

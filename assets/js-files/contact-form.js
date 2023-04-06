@@ -116,7 +116,6 @@ function successfulMessage() {
     })
     tl.to('.form-group', {
         opacity: 0,
-        display: 'none',
         duration: 0.1,
     })
     let fieldSvgs = document.querySelectorAll('.field-svg')
@@ -131,14 +130,11 @@ function successfulMessage() {
             scale: 0.4,
             y: i * 100,
             fill: '#6D9A77',
-            duration: 2.5,
+            duration: 2,
             ease: Elastic.easeInOut,
         }, '<')
         i++
     }
-
-
-
 }
 
 export {

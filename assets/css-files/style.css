@@ -52,6 +52,7 @@ section .content-col {
     /* border: solid 1px red; */
 }
 
+
 @media only screen and (max-width: 800px) {
     .intro-section {
         margin-top: 200px;
