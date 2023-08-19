@@ -17,10 +17,6 @@ import {
     loadAboutMe
 } from './about-me.js'
 import {
-    mapTest,
-    createSinglePath
-} from './development-helpers.js'
-import {
     main as workMain
 }
 from './work-section.js'
