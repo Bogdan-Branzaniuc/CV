@@ -6,8 +6,6 @@ import {
     TimelineMax,
     Elastic
 } from "../node_modules/gsap/index.js"
-
-
 import {
     MorphSVGPlugin
 } from "../node_modules/gsap/MorphSVGPlugin.js"
@@ -78,6 +76,19 @@ const loadIntroSection = function (selectors) {
     /**
      * loads the intro-section elements
      **/
+    let introSection = document.querySelector('.intro-section')
+    const loadTl = new TimelineMax({
+        defaults: {
+            duration: 1
+        }
+    })
+    for(let element of introSection.children){
+        loadTl.from(element, {
+            opacity: 0,
+            x: -100,
+        },)
+    }
+    
 }
 
 

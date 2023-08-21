@@ -19,9 +19,16 @@
     margin-top: 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:first baseline;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.tech-row-card{
+    border: solid 2px white;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .tech {
@@ -33,7 +40,11 @@
 }
 
 .tech img {
-    width: 30%;
+    width: 40%;
+}
+
+.tech p {
+    font-weight: 500;
 }
 
 .intro-section-part {
