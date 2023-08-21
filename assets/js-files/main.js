@@ -56,7 +56,11 @@ const navSelectors = {
 }
 const introSelectors = {
     downloadPDFSvg: document.querySelector('.download-PDF-svg-tag'),
-    downloadPDFSvgPaths: document.querySelectorAll('.download-PDF-svg-tag svg > g>g')
+    downloadPDFSvgPaths: document.querySelectorAll('.download-PDF-svg-tag svg > g>g'),
+    techIcons: document.querySelectorAll('.tech'),
+    headings: document.querySelectorAll('.intro-heading'),
+    proficientHeading: document.querySelector('.proficient-heading'),
+    paragraphs: document.querySelectorAll('p'),
 }
 
 const master = new TimelineMax()

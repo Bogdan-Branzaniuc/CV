@@ -76,19 +76,32 @@ const loadIntroSection = function (selectors) {
     /**
      * loads the intro-section elements
      **/
-    let introSection = document.querySelector('.intro-section')
+    console.log(selectors)
     const loadTl = new TimelineMax({
         defaults: {
-            duration: 1
+            duration: 2,
+            ease: Elastic.easeOut,
         }
     })
-    for(let element of introSection.children){
-        loadTl.from(element, {
-            opacity: 0,
-            x: -100,
-        },)
-    }
-    
+
+    loadTl.from('.intro-heading', {
+        opacity: 0,
+        y: -100,
+        stagger: 0.4
+    })
+    loadTl.from('.tech', {
+        opacity: 0,
+        x: -100,
+        stagger: 0.3
+    },'<')
+    loadTl.from('.education-wrapper', {
+        opacity: 0,
+        y: 10,
+    },'<')
+    loadTl.from('.education-image', {
+        opacity: 0,
+        x: 40,
+    },'<')
 }
 
 
