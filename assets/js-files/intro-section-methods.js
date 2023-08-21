@@ -84,11 +84,22 @@ const loadIntroSection = function (selectors) {
         }
     })
 
+    
+    loadTl.from('.intro-section', {
+        opacity: 0,
+        duration:1,
+    })
+    loadTl.from('.tech-row-card', {
+        opacity: 0,
+        x: -200,
+        stagger: 0.4,
+  
+    })
     loadTl.from('.intro-heading', {
         opacity: 0,
         y: -100,
         stagger: 0.4
-    })
+    },'<')
     loadTl.from('.tech', {
         opacity: 0,
         x: -100,
