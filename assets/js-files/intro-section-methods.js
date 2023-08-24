@@ -9,7 +9,9 @@ import {
 import {
     MorphSVGPlugin
 } from "../node_modules/gsap/MorphSVGPlugin.js"
-
+import {
+    ScrollTrigger
+} from '../node_modules/gsap/ScrollTrigger.js'
 gsap.registerPlugin(MorphSVGPlugin)
 gsap.registerPlugin(Draggable)
 
@@ -76,15 +78,12 @@ const loadIntroSection = function (selectors) {
     /**
      * loads the intro-section elements
      **/
-    console.log(selectors)
     const loadTl = new TimelineMax({
         defaults: {
             duration: 2,
             ease: Elastic.easeOut,
         }
     })
-
-    
     loadTl.from('.intro-section', {
         opacity: 0,
         duration:1,
@@ -113,6 +112,15 @@ const loadIntroSection = function (selectors) {
         opacity: 0,
         x: 40,
     },'<')
+
+    ScrollTrigger.create({
+        trigger: '.intro-section',
+        start: 'top 40%',
+        animation: loadTl,
+        end: 'bottom 80%',
+        toggleActions: "play reverse play reverse",
+
+    })
 }
 
 

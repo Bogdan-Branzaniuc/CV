@@ -227,6 +227,7 @@ let main = function () {
     createTabsScrollTriggers(studiesInfo)
     createTabsScrollTriggers(algosInfo)
     updateInnerTabElementSvg()
+    updateMainButtons(currentMainButton)
     dashboardToFixed()
     // update slider animation method
     draggableTrigger()
