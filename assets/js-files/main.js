@@ -17,7 +17,7 @@ import {
     loadAboutMe
 } from './about-me.js'
 import {
-    main as workMain
+    main as workMain,
 }
 from './work-section.js'
 import {

@@ -2,7 +2,7 @@
     color: #BDACD3;
     position: relative;
     overflow: hidden;
-    height: 400vh;
+    height: 100vh;
 }
 
 .work-section a {
@@ -30,7 +30,6 @@
     display: block;
 }
 
-
 /* ########### github svg, heading and tab-buttons **********/
 #github-icon-svg {
     height: 100%;
@@ -41,7 +40,6 @@
     height: 150px;
     display: flex;
     justify-content: left;
-
 }
 
 .github-icon-tag {
@@ -82,44 +80,20 @@
     width: 70%;
 }
 
-/* ########### scroll interractive Slider ##########*/
-.scroll-dragger-row {
-    min-height: 50px;
-    max-height: 50px;
-
-    display: flex;
-    justify-content: center;
-}
-
-.bar {
-    position: relative;
-    top: 20px;
-    height: 10px;
-    width: 100%;
-    background-color: #BDACD3;
-    border-radius: 5px;
-}
-
-#handler {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    background: red;
-    border-radius: 50%;
-    left: 0;
-    top: -10px;
-    z-index: 1;
-}
-
 /* *************** Tabs Info ************** */
 .info-wrapper {
     position: relative;
 }
 
+.iframe-keymelter{
+    width: 500px;
+    height: 300px;
+}
+
 .projects-info,
 .studies-info,
 .algos-info {
-    display: none;
+    display: none; 
     position: relative;
     top: 0;
     align-items: left;
@@ -133,6 +107,16 @@
     align-items: center;
     padding: 10px;
 }
+
+.tab-buttons{
+    display: none;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+/* Draggable rotation widget */
+
 
 
 @media only screen and (max-width: 800px) {
@@ -181,10 +165,6 @@
         top: 0;
         width: 50%;
     }
-
-    /* .work-svgs-col {
-        height: 200px;
-    } */
 
     .work-section img {
         width: 20px;

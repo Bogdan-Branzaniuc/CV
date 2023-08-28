@@ -16,6 +16,7 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css-files/style.css">
     <link rel="stylesheet" href="assets/css-files/navigation.css">
     <link rel="stylesheet" href="assets/css-files/intro-section.css">
@@ -229,43 +230,54 @@
                                     <h1>WELCOME TO MY WORK</h1>
                                     <div class="row g-0 work-buttons-wrapper">
                                         <div class="col-4">
-                                            <a class="btn btn-primary work-main-btn work-projects-button"
-                                                href="#work-section-top">projects</a>
+                                            <a class="btn btn-primary work-main-btn" data-button="work-projects-button">projects</a>
                                         </div>
                                         <div class="col-4">
-                                            <a class="btn btn-primary work-main-btn work-studies-button"
-                                                href="#work-section-top">studies</a>
+                                            <a class="btn btn-primary work-main-btn" data-button="work-studies-button">studies</a>
                                         </div>
                                         <div class="col-4">
-                                            <a class="btn btn-primary work-main-btn work-algo-button"
-                                                href="#work-section-top">algorithmic</a>
+                                            <a class="btn btn-primary work-main-btn" data-button="work-algo-button">algorithmic</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
                         </div>
                     </div>
+                    <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
                 </div>
                 <br>
-                <!-- dragger  -->
-                <div class="row g-0 scroll-dragger-row">
-                    <div class="col-1"></div>
-                    <div class="col-10 ">
-                        <div class="bar">
-                            <div id="handler"></div>
-                            breakpoints
+                <br>
+                <div class="row g-0">
+                    <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
+                    <div class="col-10 col-lg-6">
+                        <div class="tab-buttons projects-buttons">
+                            <button class="btn tab-button projects-button" data-info="nuclearFusionP">Nuclear Fusion</button>
+                            <button class="btn tab-button projects-button" data-info="hangmanP">Hangman Game</button>
+                            <button class="btn tab-button projects-button" data-info="keyMelterP">Keymelter</strobutton>
+                            <button class="btn tab-button projects-button" data-info="redTapeP">Tundorul</strobutton>
+                            <button class="btn" data-info="">Ecommerce</strobutton>
+                        </div>
+                        <div class="tab-buttons studies-buttons">
+                            <button class="btn tab-button studies-button" data-info="code-instituteS">Code Institute</button>
+                            <button class="btn tab-button studies-button" data-info="eloquentJsS">Eloquent JS</button>
+                            <button class="btn tab-button studies-button" data-info="anntotatd-turingS">Annotated Turing</button>
+                        </div>
+                        <div class="tab-buttons algo-buttons">
+                            <button class="btn tab-button algo-button" data-info="algo-expertA">Algoexpert</button>
+                            <button class="btn tab-button algo-button" data-info="codewarsA">CodeWars</button>
                         </div>
                     </div>
-                    <div class="col-1"></div>
+                    <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
                 </div>
-                <br><br>
+                <br>
+                <br>
                 <!-- Info and SVGs -->
                 <div class="row g-0 work-info-and-svgs-row">
                     <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
                     <div class="col-10 col-lg-6">
                         <div class="row g-0 work-tab">
                             <div class="col-12 col-sm-4 content-col work-svgs-col">
+                                <!-- load svgs -->
                                 <script src="./assets/media/svg/workinfo/nuclearFusionP.js"></script>
                                 <script src="./assets/media/svg/workinfo/hangmanP.js"></script>
                                 <script src="./assets/media/svg/workinfo/keyMelterP.js"></script>
@@ -283,13 +295,6 @@
                                     <p>A simple web-page about Nuclear Fusion meant to show my understandings of the
                                         front
                                         end basics</p>
-                                    <div class="img-work-info-wrapper">
-                                        <img src="assets/media/pngs/html.png" alt="">
-                                        <img src="assets/media/pngs/css.png" alt="">
-                                        <img src="assets/media/pngs/bootstrap.png" alt="">
-                                        <img src="assets/media/pngs/js.png" alt="">
-                                        <img src="assets/media/pngs/lottie.png" alt="">
-                                    </div>
                                     <div class="row info-buttons-wrapper g-0">
                                         <div class="col-6 btn btn-primary">
                                             <a target="_blank"
@@ -327,20 +332,11 @@
                                 </div>
                                 <div class="projects-info keyMelterP">
                                     <h1>Keymelter Typing Exercice</h1>
-                                    <p>Third milestone project with Code Institute </p>
-                                    <p>A Python typing game for programmers</p>
+                                    <div class="iframe-keymelter">
+                                        <iframe class="iframe-keymelter" src="https://typinggame.herokuapp.com/"></iframe>
+                                    </div>
                                     <div>
                                         <img src="assets/media/pngs/python.png" alt="">
-                                    </div>
-                                    <div class="row info-buttons-wrapper g-0">
-                                        <div class="col-6 btn btn-primary">
-                                            <a target="_blank" href="https://typinggame.herokuapp.com/">Live
-                                                Project</a>
-                                        </div>
-                                        <div class="col-6 btn btn-primary">
-                                            <a target="_blank"
-                                                href="https://github.com/Bogdan-Branzaniuc/typing-game">source</a>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="projects-info redTapeP">
@@ -412,11 +408,12 @@
 
                         </div>
                     </div>
-                    <!-- ###################### SECTION CONTENT END:-->
                     <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
                 </div>
+                <br>
             </div>
         </div>
+        <!-- ###################### SECTION CONTENT END:-->
     </section>
 
     <!-- Principles -->
