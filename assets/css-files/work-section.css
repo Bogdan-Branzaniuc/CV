@@ -100,7 +100,11 @@
     align-items: center;
     padding: 10px;
 }
-
+.projects-btn{
+    scale: 0.7;
+    border-width: 3px;
+    font-size: '120%';
+}
 .tab-buttons{
     position: relative;
     display: none;
@@ -109,7 +113,7 @@
 }
 
 .tab-button:focus {
-    border-color:rgb(255, 249, 249);
+    border: solid 1px white;
 }
 .focusser-svg{
     position: absolute;

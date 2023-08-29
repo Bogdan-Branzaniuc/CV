@@ -80,7 +80,7 @@ let currentTabAndSubjects = {
 function reloadTab(e, subject=false){
     /**
      * loads elements of a new work tab
-     **/ 
+    **/ 
     let oldTab = currentTabAndSubjects[currentTabAndSubjects['tab']]
     if (subject){
         currentTabAndSubjects[currentTabAndSubjects['tab']] = e.target.getAttribute('data-info')
@@ -89,6 +89,7 @@ function reloadTab(e, subject=false){
     }else{
         let newTab = e.target.getAttribute('data-button').split('-')[1]
         if (currentTabAndSubjects['tab'] != newTab){
+            updateMainButtons(currentTabAndSubjects['tab'] ,newTab)
             reloadTabButtons(currentTabAndSubjects['tab'], newTab)
             currentTabAndSubjects['tab'] = newTab
             updateGithubSvg()
@@ -98,16 +99,37 @@ function reloadTab(e, subject=false){
     }
 }
 
+function updateMainButtons(currentTab, newTab){
+    let currentBtnClass = '.' + currentTab + '-btn'
+    let newBtnClass = '.' + newTab + '-btn'
+    
+    let tl = new TimelineMax()
+    tl.to(currentBtnClass, {
+        scale:1,
+        duration: 1,
+        borderWidth: 1,
+        fontSize: '100%',
+        ease: Power4.easeOut,
+    },'<')
+    tl.to(newBtnClass, {
+        duration: 1,
+        scale: 0.7,
+        borderWidth: 3,
+        fontSize: '120%',
+        ease: Power4.easeOut,
+    },'<')
+    
+}
 
 function updateSubjectSvg (){
     /* Updates the svg of the current scrolled-to tabElement
      when changing tabs and scrolling through their elements*/
     let currentSvg = currentTabAndSubjects[currentTabAndSubjects['tab']]
     let currentSvgId = '#' + currentSvg //default projects svg
-    let workSvgMainPathId = '#nuclearFusionP'
-    let tl = new TimelineMax()  
+    let workSvgMainPathId = '#nuclearFusionP' 
     let currentSvgFill = $('.' + currentSvg + '-fill').css('fill')
     let currentSvgStroke = $('.' + currentSvg + '-fill').css('stroke')
+    let tl = new TimelineMax() 
     tl.to(workSvgMainPathId, {
         morphSVG: {
             shape: currentSvgId,
@@ -211,6 +233,11 @@ function reloadCardInfo(oldTab){
         duration: 1,
         ease: Power4.easeOut,
     }, '<')
+    tl.to('#github-icon-bg',{
+        transformOrigin:"center",
+        rotate: '+=50',
+        duration: 3,
+    }, '<')
 
     svgFocussCounter ++
     if (svgFocussCounter > 5) svgFocussCounter = 1
@@ -228,7 +255,6 @@ function addMainBtnsListeners(){
     for (let button of document.querySelectorAll('.work-main-btn')){
         button.addEventListener('click', reloadTab)
     }
-
     for (let button of document.querySelectorAll('.tab-button')){
         button.addEventListener('click', (e)=>{
             reloadTab(e, true)
