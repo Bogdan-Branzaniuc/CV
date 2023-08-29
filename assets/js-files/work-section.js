@@ -96,8 +96,6 @@ function reloadTab(e, subject=false){
             updateSubjectSvg()
         }
     }
-    console.log(currentTabAndSubjects)
-
 }
 
 
@@ -161,6 +159,8 @@ function reloadTabButtons(oldTabButtons, newTabButtons){
     }, '<')
 }
 
+let svgFocussCounter = 1
+
 function reloadCardInfo(oldTab){
     /**
      * renders info div of the work tab
@@ -192,6 +192,28 @@ function reloadCardInfo(oldTab){
         opacity:100,
         x: 0,
     },'<')
+
+    let newSelectorSvgId = '#extended_circle' + `${svgFocussCounter}`
+    let spacer = document.querySelector('#work-section-left-spacer').getBoundingClientRect()
+    let sellectedTabSubjectButton = document.querySelector('#' + currentTabAndSubjects[currentTab] + '-tab-button')
+    let buttonX = sellectedTabSubjectButton.getBoundingClientRect().x - spacer.x -spacer.width + 10; 
+    tl.to('#focused-tab-button',{
+        rotate: '+=200',
+        x: buttonX,
+        duration: 1.5,
+    }, '<')
+    tl.to('#extended_circle1', {
+        morphSVG: {
+            shape: newSelectorSvgId,
+            map: 'complexity',
+        },
+        transformOrigin:"center",
+        duration: 1,
+        ease: Power4.easeOut,
+    }, '<')
+
+    svgFocussCounter ++
+    if (svgFocussCounter > 5) svgFocussCounter = 1
 } 
 
 const toggleDisplay = function(className){
@@ -227,6 +249,7 @@ const loadWorkSection = function(){
     })
     loadTl.from('.work-section', {
         opacity: 0,
+        onComplete: initiateBtn(),
     })
 
     ScrollTrigger.create({
@@ -236,6 +259,12 @@ const loadWorkSection = function(){
         end: 'bottom 50%',
         toggleActions: "play reverse play reverse",
     })
+}
+
+function initiateBtn(){
+    let clickEvent = new Event('click')
+    let currentBtn = document.querySelector('#'+ currentTabAndSubjects[currentTabAndSubjects['tab']] + '-tab-button')
+    currentBtn.dispatchEvent(clickEvent)
 }
 
 function main(){

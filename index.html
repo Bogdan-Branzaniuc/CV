@@ -248,26 +248,30 @@
                 <br>
                 <br>
                 <div class="row g-0">
-                    <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
+                    <div id="work-section-left-spacer" class="col-1 col-lg-3"></div> <!-- section - spacer -->
                     <div class="col-10 col-lg-6">
                         <div class="tab-buttons projects-buttons">
-                            <button class="btn tab-button projects-button" data-info="nuclearFusionP">Nuclear Fusion</button>
-                            <button class="btn tab-button projects-button" data-info="hangmanP">Hangman Game</button>
-                            <button class="btn tab-button projects-button" data-info="keyMelterP">Keymelter</strobutton>
-                            <button class="btn tab-button projects-button" data-info="redTapeP">Tundorul</strobutton>
-                            <button class="btn" data-info="">Ecommerce</strobutton>
+                            <div class="focusser-svg"></div>
+                            <button id="nuclearFusionP-tab-button" class="btn tab-button projects-button" data-info="nuclearFusionP">Nuclear Fusion</button>
+                            <button id="hangmanP-tab-button" class="btn tab-button projects-button" data-info="hangmanP">Hangman Game</button>
+                            <button id="keyMelterP-tab-button" class="btn tab-button projects-button" data-info="keyMelterP">Keymelter</strobutton>
+                            <button id="redTapeP-tab-button" class="btn tab-button projects-button" data-info="redTapeP">Tundorul</strobutton>
+                            <button id="EcommerceP-tab-button" class="btn tab-button projects-button" data-info="EcommerceP">Ecommerce</strobutton>
                         </div>
                         <div class="tab-buttons studies-buttons">
-                            <button class="btn tab-button studies-button" data-info="code-instituteS">Code Institute</button>
-                            <button class="btn tab-button studies-button" data-info="eloquentJsS">Eloquent JS</button>
-                            <button class="btn tab-button studies-button" data-info="anntotatd-turingS">Annotated Turing</button>
+                            <div class="focusser-svg"></div>
+                            <button id="code-instituteS-tab-button" class="btn tab-button studies-button" data-info="code-instituteS">Code Institute</button>
+                            <button id="eloquentJsS-tab-button" class="btn tab-button studies-button" data-info="eloquentJsS">Eloquent JS</button>
+                            <button id="anntotatd-turingS-tab-button" class="btn tab-button studies-button" data-info="anntotatd-turingS">Annotated Turing</button>
                         </div>
                         <div class="tab-buttons algo-buttons">
-                            <button class="btn tab-button algo-button" data-info="algo-expertA">Algoexpert</button>
-                            <button class="btn tab-button algo-button" data-info="codewarsA">CodeWars</button>
+                            <div class="focusser-svg"></div>
+                            <button id="algo-expertA-tab-button" class="btn tab-button algo-button" data-info="algo-expertA">Algoexpert</button>
+                            <button id="codewarsA-tab-button" class="btn tab-button algo-button" data-info="codewarsA">CodeWars</button>
                         </div>
                     </div>
                     <div class="col-1 col-lg-3"></div> <!-- section - spacer -->
+                    <script src="./assets/media/svg/focuss-buttons-svg.js"></script>
                 </div>
                 <br>
                 <br>
@@ -331,34 +335,37 @@
                                     </div>
                                 </div>
                                 <div class="projects-info keyMelterP">
-                                    <h1>Keymelter Typing Exercice</h1>
-                                    <div class="iframe-keymelter">
-                                        <iframe class="iframe-keymelter" src="https://typinggame.herokuapp.com/"></iframe>
-                                    </div>
-                                    <div>
-                                        <img src="assets/media/pngs/python.png" alt="">
-                                    </div>
+                                    <h1>Keymelter Typing Game</h1>
+                                    
+                                    <button class="btn" onclick="toggleFullScreen()">
+                                        <a target="_blank" href="https://typinggame.herokuapp.com/">Website</a>
+                                    </button>
+                                    <button class="btn" onclick="toggleFullScreen()">
+                                        <a target="_blank" href="https://github.com/Bogdan-Branzaniuc/typing-game">Source Code</a>
+                                    </button>
                                 </div>
                                 <div class="projects-info redTapeP">
                                     <h1>Tundorul Twitch Channel Website</h1>
                                     <p>A romanian Streamer that only plays games on the highest possible
                                         difficulty
                                     </p>
-                                    <lottie-player id='red-tape-p-lottie'
-                                        src="https://assets1.lottiefiles.com/packages/lf20_a9thB9.json"
-                                        background="transparent" speed="1" loop autoplay>
-                                    </lottie-player>
-                                    <p><strong>release date:</strong></p>
-                                    <p><strong>17th of May 2023</strong></p>
                                     <div class="btn btn-primary">
-                                        <a target="_blank" href="https://www.twitch.tv/tundorul">Twitch Channel</a>
+                                        <a target="_blank" href="https://tundorul.herokuapp.com">Website</a>
+                                    </div>
+                                    <div class="btn btn-primary">
+                                        <a target="_blank" href="https://github.com/Bogdan-Branzaniuc/tundorul">Source</a>
+                                    </div>
+                                </div>
+                                <div class="projects-info EcommerceP">
+                                    <h1>Ecommerce project</h1>
+                                    <p>Handmade Products</p>
+                                    <div class="btn btn-primary">
+                                        <a target="_blank" href="https://github.com/Bogdan-Branzaniuc/Daniela-Handmade-Shop">Source</a>
                                     </div>
                                 </div>
                                 <div class="studies-info code-instituteS">
                                     <h1>Code Institute FullStack Course</h1>
                                     <p>Proffessional Diploma in FullStack Engineering</p>
-                                    <p><strong>finish date</strong></p>
-                                    <p><strong>3rd of August 2023</strong></p>
                                     <a class="btn btn-primary" target="_blank"
                                         href="https://codeinstitute.net/ie/colleges-eu/">Course
                                         Brochure</a>

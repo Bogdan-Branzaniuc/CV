@@ -11,7 +11,7 @@
 }
 
 .work-section p {
-    font-size: 130%;
+    font-size: 90%;
     line-height: 120%;
 }
 
@@ -56,11 +56,10 @@
 }
 
 .work-section .btn {
-    color: inherit;
-    font-family: 'Lato';
     background-color: rgba(123, 1, 1, 0);
-    border-color: inherit;
-    font-size: 120%;
+    font-size: 100%;
+    color: inherit;
+    border-color:#BDACD3;
 }
 
 .work-buttons-wrapper {
@@ -85,11 +84,6 @@
     position: relative;
 }
 
-.iframe-keymelter{
-    width: 500px;
-    height: 300px;
-}
-
 .projects-info,
 .studies-info,
 .algos-info {
@@ -103,20 +97,26 @@
 
 .work-svgs-col {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     padding: 10px;
 }
 
 .tab-buttons{
+    position: relative;
     display: none;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-
-/* Draggable rotation widget */
-
+.tab-button:focus {
+    border-color:rgb(255, 249, 249);
+}
+.focusser-svg{
+    position: absolute;
+    width:3em;
+    top:-3em;
+    left: 0;
+}
 
 
 @media only screen and (max-width: 800px) {
