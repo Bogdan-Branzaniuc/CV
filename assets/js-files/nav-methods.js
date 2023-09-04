@@ -186,14 +186,13 @@ const loadNavBar = function (selectors) {
     loadTl.from(selectors.svgDesktopSelector, {
         opacity: 0,
         x: -30,
-        duration: 0.4,
+        duration: 0.6,
     })
     loadTl.from(selectors.svgMobileSelector, {
         opacity: 0,
         duration: 0.6,
     }, '<')
 
-    return loadTl
 }
 export {
     navSystem,

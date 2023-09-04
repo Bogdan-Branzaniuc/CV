@@ -115,7 +115,7 @@ const loadIntroSection = function (selectors) {
 
     ScrollTrigger.create({
         trigger: '.intro-section',
-        start: 'top 40%',
+        start: 'top 80%',
         animation: loadTl,
         end: 'bottom 80%',
         toggleActions: "play reverse play reverse",
