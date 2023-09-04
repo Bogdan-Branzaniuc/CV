@@ -123,7 +123,6 @@ const loadIntroSection = function (selectors) {
     })
 }
 
-
 export {
     hoverDownloadPDF,
     loadIntroSection,
