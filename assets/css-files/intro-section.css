@@ -77,8 +77,10 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .in-page-download-PDF {
-        width: 100px;
+    
+
+    .in-page-circle-wrapper {
+        width: 80px;
     }
 
     .intro-section p {

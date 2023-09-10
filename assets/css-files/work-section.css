@@ -10,11 +10,6 @@
     color: inherit;
 }
 
-.work-section p {
-    font-size: 90%;
-    line-height: 120%;
-}
-
 .work-section img {
     width: 50px;
 }
@@ -110,6 +105,7 @@
     display: none;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin: 2em 0;
 }
 
 .tab-button:focus {
@@ -117,11 +113,22 @@
 }
 .focusser-svg{
     position: absolute;
-    width:3em;
+    width:2em;
     top:-3em;
     left: 0;
 }
 
+@media only screen and (max-width: 1250px) {
+    .tab-button{
+        margin: 0 0 0 55px;
+        width: 160px;
+    }
+    .focusser-svg{
+        width: 30px;
+        top: 0;
+        left: -50px;
+    }
+}
 
 @media only screen and (max-width: 800px) {
     .work-section {
@@ -138,10 +145,6 @@
         font-size: 1.5em;
     }
 
-    .work-section p {
-        font-size: 0.9em;
-    }
-
     .work-section .btn-primary {
         font-size: 0.9em;
     }
@@ -154,9 +157,18 @@
         display: flex;
         flex-direction: row;
     }
+
+    .tab-button{
+        margin: 0 0 0 30px;
+        width: 150px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
+
+    .work-section{
+        height:110vh;
+    }
 
     .projects-info,
     .studies-info,
@@ -173,7 +185,16 @@
     .work-section img {
         width: 20px;
     }
-
+    .work-section .btn {
+        font-size: 0.6em;
+    }
+    .tab-button{
+        margin: 0 0 0 30px;
+        width: 100px;
+    }
+    .focusser-svg{
+        width:1.7em;
+    }
     .github-svg-wrapper {
         height: 80px;
         width: 80px;

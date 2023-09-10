@@ -219,9 +219,13 @@ function reloadCardInfo(oldTab){
     let spacer = document.querySelector('#work-section-left-spacer').getBoundingClientRect()
     let sellectedTabSubjectButton = document.querySelector('#' + currentTabAndSubjects[currentTab] + '-tab-button')
     let buttonX = sellectedTabSubjectButton.getBoundingClientRect().x - spacer.x -spacer.width + 10; 
+    let buttonY = sellectedTabSubjectButton.offsetTop + 3
+    console.log(sellectedTabSubjectButton.getBoundingClientRect())
+    console.log(sellectedTabSubjectButton)
     tl.to('#focused-tab-button',{
         rotate: '+=200',
         x: buttonX,
+        y: buttonY,
         duration: 1.5,
     }, '<')
     tl.to('#extended_circle1', {
