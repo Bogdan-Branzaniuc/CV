@@ -1,9 +1,7 @@
 .hobbies-section {
     color: #E49A2B;
     font-size: 130%;
-    height: 100vh;
     padding-top: 30vh;
-    overflow-x: hidden;
 }
 
 .hobbies-section h1,
@@ -28,5 +26,3 @@
     flex-direction: column;
     border-radius: 50%;
 }
-
-.hobbie-title {}

@@ -108,11 +108,11 @@ let selectorsAnimationsTls = function (navLi, selectors) {
      **/
     let rotationDegrees = {
         'intro-link-li': 3,
-        'work-link-li': 25,
+        'work-link-li': 24,
         'principles-link-li': 60,
-        'about-me-link-li': 90,
-        'hobbies-link-li': 120,
-        'contact-link-li': 160,
+        'about-me-link-li': 99,
+        'hobbies-link-li': 129,
+        'contact-link-li': 169,
     }
     let liMiddle = navLi.offsetWidth / 2
     let svgMobileSelectorWidth = 7.5
