@@ -126,7 +126,7 @@
     .focusser-svg{
         width: 30px;
         top: 0;
-        left: -50px;
+        left: -46px;
     }
 }
 
@@ -169,7 +169,12 @@
     .work-section{
         height:110vh;
     }
-
+    .work-section h1 {
+        font-size:100%;
+    }
+    .work-section p {
+        line-height:12px;
+    }
     .projects-info,
     .studies-info,
     .algos-info {
@@ -190,10 +195,13 @@
     }
     .tab-button{
         margin: 0 0 0 30px;
-        width: 100px;
+        width: 110px;
+    }
+    .tab-buttons{
+        margin: 0 0 0 0.3em ;
     }
     .focusser-svg{
-        width:1.7em;
+        width:1.4em;
     }
     .github-svg-wrapper {
         height: 80px;
